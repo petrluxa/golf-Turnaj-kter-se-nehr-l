@@ -22,30 +22,39 @@ data/
 
 ## Kde to běží
 
-Nasazeno 20. 9. 2026 na **https://www.matchpulse.cz/golf/**. Na serveru leží
-v `/matchpulse.cz/www/golf/` obsah složky `web/` a `.htaccess` s `Options -Indexes`,
-`DirectoryIndex index.html` a typem pro `.json`.
+Nasazeno na **https://www.matchpulse.cz/golf/** jako statické soubory.
+
+Stránka je jedna ze tří věcí, které na téhle doméně běží vedle sebe a sdílejí
+hosting. Zbylé dvě jsou v soukromých repozitářích:
+
+| Co | Kde |
+|---|---|
+| MatchPulse — tenisové live scoring, hostitelská aplikace | `matchpulse.cz` |
+| Caddiee — golfová turnajová aplikace | `matchpulse.cz/caddiee/` |
+| **tenhle archiv turnaje** | `matchpulse.cz/golf/` |
+
+Kdo sáhne do jedné z nich, může rozbít ostatní. Podrobnosti o hostingu, databázi
+a nasazení jsou **schválně jen v těch soukromých repozitářích** — sem nepatří.
 
 > **Původní verze tohohle README tvrdila, že MatchPulse je Laravel. Není.**
-> Je to vlastní PHP aplikace s front controllerem `app.php` — žádný `artisan`,
-> `routes/` ani `vendor/` tam nejsou. Návod pro Laravel je níž a platí pro jiné
-> weby, ne pro matchpulse.cz. Kdo se jím řídil, zasekl se hned na prvním kroku.
+> Je to vlastní PHP aplikace s front controllerem — žádný `artisan`, `routes/`
+> ani `vendor/` tam nejsou. Návod pro Laravel je níž a platí pro jiné weby.
+> Kdo se jím řídil, zasekl se hned na prvním kroku.
 
 ### Jak se to nasazuje
 
 Nahraj obsah složky `web/` do složky na webu. Nic víc. Odkazy uvnitř jsou
-relativní a data si stránka načte z `turnaj.json` vedle sebe, takže funguje
+relativní a data si stránka načte z `turnaj.json` vedle sebe, takže to funguje
 v libovolné podsložce.
 
 **Do složky nedávej vlastní `RewriteEngine On`.** Apache tím v podsložce přestane
-dědit pravidla z nadřazeného `.htaccess` — a s nimi i sjednocení na `www`, které
-MatchPulse dělá v kořeni. Není to potřeba: pravidla v kořeni mají `RewriteCond !-f`
-a `!-d`, takže skutečné soubory na front controller neposílají.
+dědit pravidla mod_rewrite z nadřazeného `.htaccess` — a s nimi i sjednocení na
+`www`. Není to potřeba: pravidla v kořeni skutečné soubory na front controller
+neposílají.
 
-> Po nahrání může proxy Forpsi ještě chvíli vracet 404, kterou si zapamatovala
+> Po nahrání může proxy hostingu ještě chvíli vracet 404, kterou si zapamatovala
 > z doby, kdy soubory neexistovaly. Ověřuj s parametrem navíc v adrese (`?x=1`),
-> jinak budeš hledat chybu, která tam není. Totéž platí pro opcache u PHP —
-> změna se projeví až za minutu či dvě.
+> jinak budeš hledat chybu, která tam není.
 
 ## Nasazení na Laravel (jiný web, ne MatchPulse)
 
