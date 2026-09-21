@@ -17,7 +17,7 @@ laravel/
   resources/views/golf/turnaj.blade.php
 data/
   vysledky.json           stejná data (zdrojová kopie)
-  vysledky.csv            výsledky jako tabulka, 289 řádků
+  vysledky.csv            výsledky jako tabulka, 291 řádků
 ```
 
 ## Kde to běží
@@ -142,7 +142,11 @@ Poslední položka řádku je pole ran za jednotlivá kola, vytažené ze skórk
 hráče na ČGF (`vysledkova-listina-hrace`). Ve výsledkové listině rány nejsou —
 ta zná jen stablefordové body.
 
-Pole je **prázdné tam, kde hrubý výsledek neexistuje**: ve stablefordu se po
+Pole má **jednu položku na kolo** — prázdný řetězec tam, kde rány nejsou.
+Bez toho se u hráče, který některé kolo neodehrál, rány posunuly o jedno místo
+a vypsaly se u špatného kola.
+
+Prázdné je tam, kde hrubý výsledek neexistuje: ve stablefordu se po
 ztrátě bodu míč zvedá, jamka se nedohraje a ČGF pak žádný součet neuvádí.
 Týká se to 43 z 289 řádků. Stránka na takovém místě ukáže pomlčku — nesčítej
 zbylé jamky, vyšlo by číslo nižší, než co se odehrálo.
@@ -155,6 +159,34 @@ ne nula ran.
 
 Protože řádek na konci povyrostl, **počet kol se pozná z `pocet_kol`, ne z délky
 řádku**. Kdo sáhne do `web/turnaj.js`, ať to nevrací zpátky.
+
+### Dvoudenní ročníky zapsané jako dva turnaje
+
+Hraje se vždy sobota + neděle, jenže u ročníků **2016, 2017, 2018 a 2023** vede
+ČGF každý den jako **samostatný turnaj s vlastním `id`** — a to pod úplně jiným
+názvem, takže se ta sobotní půlka nedá najít podle jména. Pozná se podle dne
+v týdnu: když je datum ročníku neděle, chybí k němu sobota.
+
+| Ročník | Sobota v ČGF | Hřiště |
+|---|---|---|
+| 2016 | `1300083013` „HAPPY GOLF tour“ — hráči vedení jako **nezařazení, bez výsledků** | Malevil |
+| 2017 | `1300089002` „Turnaje s luxusními výhrami…“ | Malevil |
+| 2018 | `1300098420` totéž | Malevil |
+| 2023 | `1300132156` „Luxa tour“ | Cihelny |
+
+Ročník na to má nepovinný klíč `"prvni_kolo"` s `cgf_id`, názvem, hřištěm, datem
+a odkazem; `"bez_vysledku": true` znamená, že se hrálo, ale ČGF k tomu nic
+nezveřejnila. Obdobně `"druhe_kolo"` u roku 2020.
+
+U 2017, 2018 a 2023 jsou sobotní výsledky sloučené do ročníku jako 1. kolo.
+**Pořadí a celkové skóre jsou dopočítané součtem obou kol** — ČGF společnou
+listinu nikdy nevydala, takže to není oficiální výsledek a stránka to říká
+v poznámce u ročníku.
+
+Z cizích turnajů (2017, 2018) se berou **jen hráči, kteří jsou i v nedělní
+listině**; zbylých 53 resp. 46 účastníků do archivu nepatří. V sobotní listině
+je v buňce `X / Y` u brutto kategorií jiné číslo než netto — bere se vždy
+**druhé**, tedy netto.
 
 ### Doplnění dalšího ročníku
 

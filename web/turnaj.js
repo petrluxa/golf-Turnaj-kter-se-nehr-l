@@ -37,20 +37,37 @@
      výsledek. Bez té podmínky by nedohraná jamka nebo vynechané kolo vypadaly
      jako lepší výkon než poctivě dohraných osmnáct. */
   function nejlepsiNaRany(e) {
-    var sloupce = (e.pocet_kol === 2 ? [5, 6] : [5]).filter(function (i) {
-      return e.kategorie.some(function (cat) {
-        return cat.poradi.some(function (r) { return r[i] !== '' && r[i] != null; });
+    /* Bere v úvahu jen kola, ke kterým ročník opravdu má výsledky — u roku 2020
+       ČGF zveřejnila jen první, byť turnaj byl dvoukolový. Do pořadí se pouští
+       hráč, který všechna taková kola odehrál a ke každému má známý hrubý
+       výsledek; jinak by nedohraná jamka nebo vynechané kolo vypadaly lépe než
+       poctivě dohraných osmnáct. */
+    var kol = e.pocet_kol === 2 ? 2 : 1;
+    var sloupec = function (i) { return i === 0 ? 5 : 6; };
+    var indexy = [];
+    for (var i = 0; i < kol; i++) {
+      var sl = sloupec(i);
+      var hralo = e.kategorie.some(function (cat) {
+        return cat.poradi.some(function (r) { return r[sl] !== '' && r[sl] != null; });
       });
-    });
+      if (hralo) { indexy.push(i); }
+    }
     var poradi = [];
     e.kategorie.filter(isNetto).forEach(function (cat) {
       cat.poradi.forEach(function (r) {
         var rany = ranyKola(r, e.pocet_kol);
-        var uplny = sloupce.every(function (i) { return r[i] !== '' && r[i] != null; });
-        if (!uplny || rany.length !== sloupce.length) return;
-        if (!rany.every(function (x) { return Number(x) > 0; })) return;
-        var soucet = rany.reduce(function (a, x) { return a + Number(x); }, 0);
-        poradi.push({ jmeno: r[1], rany: soucet, kola: rany.slice() });
+        var odehral = indexy.every(function (i) {
+          var sl = sloupec(i);
+          return r[sl] !== '' && r[sl] != null;
+        });
+        if (!odehral) { return; }
+        var hodnoty = indexy.map(function (i) { return rany[i]; });
+        if (!hodnoty.every(function (x) { return Number(x) > 0; })) { return; }
+        poradi.push({
+          jmeno: r[1],
+          rany: hodnoty.reduce(function (a, x) { return a + Number(x); }, 0),
+          kola: hodnoty
+        });
       });
     });
     return poradi.sort(function (a, b) { return a.rany - b.rany; }).slice(0, 3);
@@ -204,6 +221,11 @@
         '<span>' + (e.pocet_kol === 2 ? '2 kola' : '1 kolo') + '</span>' +
         '<span>' + esc(e.nazev_v_cgf) + '</span>' +
         '<span><a href="' + esc(e.url) + '" target="_blank" rel="noopener">detail na cgf.cz ↗</a></span>' +
+        (e.prvni_kolo
+          ? '<span>' + (e.prvni_kolo.bez_vysledku ? '1. kolo bez výsledků' : '1. kolo') + ': ' +
+            '<a href="' + esc(e.prvni_kolo.url) + '" target="_blank" rel="noopener">' +
+            esc(e.prvni_kolo.nazev_v_cgf) + ' ↗</a></span>'
+          : '') +
         '</div>' +
         (e.vysledky_publikovany && e.poznamka
           ? '<p class="tkn-edition-note">' + esc(e.poznamka) + '</p>' : '');

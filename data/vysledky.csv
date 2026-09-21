@@ -24,7 +24,7 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2015,Malevil,10. 10. 2015,"společná 18,1-54",4,HAVEL David,GKMES,11000122,"19,5",30 / 30,31 / 31,61,"19,6",99,100
 2015,Malevil,10. 10. 2015,"společná 18,1-54",5,HÁVOVÁ Tereza,GCKYN,15100072,"23,8",26 / 26,32 / 32,58,"23,8",109,104
 2015,Malevil,10. 10. 2015,"společná 18,1-54",6,ŠÍSTEK Jakub,GCPDY,00801421,"18,4",23 / 23,30 / 30,53,"18,5",106,102
-2015,Malevil,10. 10. 2015,"společná 18,1-54",7,LUSTIG Daniel,GCCCB,11900058,"22,9",30 / 30,27 / 27,57,"23,0",107,
+2015,Malevil,10. 10. 2015,"společná 18,1-54",7,LUSTIG Daniel,GCCCB,11900058,"22,9",30 / 30,27 / 27,57,"23,0",,107
 2016,Malevil,02. 10. 2016,Společná HCP 0 - 15,1,BŘEZINA Lukáš,GCKYN,15100113,"13,1",37 / 37,,37,"13,1",84,
 2016,Malevil,02. 10. 2016,Společná HCP 0 - 15,2,FRIEDL Leoš,GCTLC,10801425,"14,2",36 / 36,,36,"14,2",87,
 2016,Malevil,02. 10. 2016,Společná HCP 0 - 15,3,VACULÍK Ondřej,GCLIB,05300549,"9,7",36 / 36,,36,"9,7",81,
@@ -49,68 +49,68 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2016,Malevil,02. 10. 2016,"Společná HCP 15,1 - 54",7,TICHÝ Jiří,CESGK,09802923,"19,9",24 / 24,,24,"19,9",109,
 2016,Malevil,02. 10. 2016,"Společná HCP 15,1 - 54",8,KAMENÍK Martin,ERBGC,11102516,"30,0",18 / 18,,18,"30,0",,
 2016,Malevil,02. 10. 2016,"Společná HCP 15,1 - 54",,KAHOUN Jakub,GCCCB,11900068,"15,1",,,0,"15,1",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,1,STÁRKOVÁ Barbora,GCKON,04400566,"9,8",39 / 39,,39,"9,8",81,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,2,TRNĚNÝ Milan,GCPDY,00801382,"16,5",36 / 36,,36,"16,5",89,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,3,HÁVA Filip,GCKYN,15100074,"8,8",35 / 35,,35,"8,8",84,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,4,MOJŽÍŠ Milan,GKBZA,09501000,"7,0",35 / 35,,35,"7,0",86,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,5,KAHOUN Jakub,LGCPY,18002617,"15,3",35 / 35,,35,"15,3",89,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,6,LOUDOVÁ Jana,GCPRH,00900682,"17,4",34 / 34,,34,"17,4",93,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,7,VACULÍK Ondřej,GCLIB,05300549,"9,6",34 / 34,,34,"9,6",84,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,8,KURKA Josef,GCDSR,07500760,"8,3",33 / 33,,33,"8,3",84,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,9,FAFL Martin,GCDSR,07500765,"8,7",32 / 32,,32,"8,7",85,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,10,HONSA Jiří,,,BEZ,32 / 32,,32,,,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,11,ŠUSTR Martin,GCDSR,07500759,"4,9",32 / 32,,32,"4,9",79,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,12,ŠUSTROVÁ Karolina,GCHOS,07807017,"8,9",31 / 31,,31,"8,9",86,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,13,FRIEDL Leoš,GCTLC,10801425,"14,1",31 / 31,,31,"14,1",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,14,HAVEL David,GKMES,11000122,"16,2",31 / 31,,31,"16,2",93,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,15,BŘEZINA Lukáš,GCKYN,15100113,"11,7",30 / 30,,30,"11,7",89,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,16,ŠAVRDA Petr,GCDSR,07500694,"5,9",30 / 30,,30,"5,9",83,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,17,KOTKOVÁ Alena,GCKAR,01900558,"18,2",30 / 30,,30,"18,2",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,18,HŮLOVEC Tomáš,GCMAP,13500599,"15,3",29 / 29,,29,"15,3",96,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,19,LUXA Petr,GCDSR,07500763,"8,1",29 / 29,,29,"8,1",86,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,20,KRAMPERA Ondřej,GCKVA,00301717,"11,4",26 / 26,,26,"11,4",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,21,EDL Milan,GKDDV,04700476,"6,5",26 / 26,,26,"6,5",91,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,22,CHVAPIL Tomáš,GCGRA,07200706,"17,7",25 / 25,,25,"17,7",107,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,23,VOJTÍŠEK Petr,GCDSR,07500764,"8,7",25 / 25,,25,"8,7",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,24,OLIVA Vladimír,GCDSR,07500767,"9,4",25 / 25,,25,"9,4",96,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,25,NOVÁK Petr,ERBGC,11101589,"17,9",24 / 24,,24,"17,9",,
-2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,26,ŽABA Adam,,,BEZ,30 / 30,,30,,76,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",1,CHVAPILOVÁ Zlata,GCGRA,07200705,"41,0",40 / 40,,40,"41,0",,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",2,HAVLÍK Jaromír,GCSPR,16600201,"49,0",38 / 38,,38,"49,0",125,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",3,POLÁŠEK Filip,,13675,BEZ,36 / 36,,36,,93,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",4,KAMENÍK Martin,CESGK,09805914,"25,4",35 / 35,,35,"25,4",100,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",5,LUKEŠOVÁ Markéta,GCHOS,07801521,"51,0",34 / 34,,34,"51,0",,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",6,DVOŘÁK Petr,PGCGC,12500433,"31,7",34 / 34,,34,"31,7",,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",7,TICHÝ Jiří,LGCPY,18003050,"20,0",33 / 33,,33,"20,0",99,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",8,MOJŽÍŠOVÁ Veronika,GKBZA,09501021,"21,5",32 / 32,,32,"21,5",101,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",9,RIKLOVÁ Alice,GCHOS,07800410,"20,6",31 / 31,,31,"20,6",103,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",10,ZÁHOŘÁK Marek,,00,BEZ,15 / 15,,15,,,
-2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",11,NEJEDLÁ Markéta,,,BEZ,15 / 15,,15,,,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,1,BŘEZINA Lukáš,GCKYN,15100113,"9,7",37 / 37,,37,"9,7",80,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,2,OLIVA Vladimír,GCDSR,07500767,"9,6",37 / 37,,37,"9,6",82,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,3,FAFL Martin,GCDSR,07500765,"9,0",36 / 36,,36,"9,0",81,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,4,CHVAPIL Lukáš,GDSAP,19700318,"4,1",34 / 34,,34,"4,1",76,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,5,EDL Milan,GKDDV,04700476,"6,8",33 / 33,,33,"6,8",80,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,6,HÁVA Filip,GCKYN,15100074,"9,1",30 / 30,,30,"9,1",88,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,7,VOJTÍŠEK Petr,GCDSR,07500764,"9,1",30 / 30,,30,"9,1",,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,8,HONSA Jiří,,,BEZ,29 / 29,,29,,91,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,9,VACULÍK Ondřej,CESGK,09805331,"10,3",28 / 28,,28,"10,3",94,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,10,LUXA Petr,GCDSR,07500763,"8,2",23 / 23,,23,"8,2",,
-2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,11,PETR Jaroslav,,,BEZ,34 / 34,,34,,74,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",1,HAVEL David,GKMES,11000122,"14,2",37 / 37,,37,"14,2",88,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",2,CHVAPILOVÁ Zlata,CESGK,09806603,"36,0",36 / 36,,36,"36,0",116,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",3,HÁVOVÁ Tereza,GCKYN,15100072,"23,9",35 / 35,,35,"23,9",100,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",4,HAVLÍK Jaromír,GCSPR,16600201,"30,6",30 / 30,,30,"30,6",,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",5,KAHOUN Jakub,LGCPY,18002617,"13,4",30 / 30,,30,"13,4",93,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",6,MOUDŘÍK Jan Ml.,,,BEZ,29 / 29,,29,,,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",7,RIKLOVÁ Alice,CESGK,09806353,"19,4",29 / 29,,29,"19,4",103,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",8,TRNĚNÝ Milan,GCPDY,00801382,"16,8",27 / 27,,27,"16,8",101,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",9,TICHÝ Jiří,LGCPY,18003050,"18,2",27 / 27,,27,"18,2",102,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",10,ŠTĚPÁNEK Martin,CESGK,09804856,"12,8",24 / 24,,24,"12,8",,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",11,CHVAPIL Tomáš,CESGK,09806602,"16,9",23 / 23,,23,"16,9",103,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",12,FRIEDL Leoš,GCTLC,10801425,"12,5",22 / 22,,22,"12,5",101,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",13,KAMENÍK Martin,CESGK,09805914,"16,4",21 / 21,,21,"16,4",,
-2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",14,MOUDŘÍK Jan,CESGK,09805276,"23,8",20 / 20,,20,"23,8",,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,1,STÁRKOVÁ Barbora,GCKON,04400566,"10,4",35 / 35,39 / 39,74,"9,8",84,81
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,2,KURKA Josef,GCDSR,07500760,"8,2",38 / 38,33 / 33,71,"8,3",78,84
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,3,VACULÍK Ondřej,GCLIB,05300549,"9,6",36 / 36,34 / 34,70,"9,6",86,84
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,4,HÁVA Filip,GCKYN,15100074,"8,8",33 / 33,35 / 35,68,"8,8",83,84
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,5,KAHOUN Jakub,LGCPY,18002617,"15,3",32 / 32,35 / 35,67,"15,3",91,89
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,5,LOUDOVÁ Jana,GCPRH,00900682,"17,4",33 / 33,34 / 34,67,"17,4",,93
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,7,TRNĚNÝ Milan,GCPDY,00801382,"16,5",30 / 30,36 / 36,66,"16,5",95,89
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,8,MOJŽÍŠ Milan,GKBZA,09501000,"7,0",28 / 28,35 / 35,63,"7,0",89,86
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,9,BŘEZINA Lukáš,GCKYN,15100113,"11,6",32 / 32,30 / 30,62,"11,7",88,89
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,10,FAFL Martin,GCDSR,07500765,"8,6",29 / 29,32 / 32,61,"8,7",87,85
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,10,KOTKOVÁ Alena,GCKAR,01900558,"18,1",31 / 31,30 / 30,61,"18,2",99,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,10,LUXA Petr,GCDSR,07500763,"8,0",32 / 32,29 / 29,61,"8,1",83,86
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,10,EDL Milan,GKDDV,04700476,"6,4",35 / 35,26 / 26,61,"6,5",78,91
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,14,HONSA Jiří,,,BEZ,28 / 28,32 / 32,60,,95,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,14,ŠUSTR Martin,GCDSR,07500759,"4,8",28 / 28,32 / 32,60,"4,9",87,79
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,14,ŠAVRDA Petr,GCDSR,07500694,"5,8",30 / 30,30 / 30,60,"5,9",,83
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,17,FRIEDL Leoš,GCTLC,10801425,"14,0",28 / 28,31 / 31,59,"14,1",96,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,17,ŽABA Adam,,,BEZ,29 / 29,30 / 30,59,,77,76
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,19,HAVEL David,GKMES,11000122,"16,1",27 / 27,31 / 31,58,"16,2",100,93
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,20,HŮLOVEC Tomáš,GCMAP,13500599,"15,2",28 / 28,29 / 29,57,"15,3",97,96
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,21,ŠUSTROVÁ Karolina,GCHOS,07807017,"8,8",24 / 24,31 / 31,55,"8,9",95,86
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,21,OLIVA Vladimír,GCDSR,07500767,"9,3",30 / 30,25 / 25,55,"9,4",86,96
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,23,VOJTÍŠEK Petr,GCDSR,07500764,"8,6",28 / 28,25 / 25,53,"8,7",90,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,24,CHVAPIL Tomáš,GCGRA,07200706,"17,6",27 / 27,25 / 25,52,"17,7",100,107
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,25,NOVÁK Petr,ERBGC,11101589,"17,8",20 / 20,24 / 24,44,"17,9",106,
+2017,Malevil,01. 10. 2017,Společná HCP 0 - 18,26,KRAMPERA Ondřej,GCKVA,00301717,"11,4",,26 / 26,26,"11,4",,
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",1,HAVLÍK Jaromír,GCSPR,16600201,"51,0",39 / 39,38 / 38,77,"49,0",,125
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",2,CHVAPILOVÁ Zlata,GCGRA,07200705,"45,0",34 / 34,40 / 40,74,"41,0",126,
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",3,LUKEŠOVÁ Markéta,GCHOS,07801521,"51,0",36 / 36,34 / 34,70,"51,0",128,
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",4,POLÁŠEK Filip,,13675,BEZ,33 / 33,36 / 36,69,,95,93
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",5,KAMENÍK Martin,CESGK,09805914,"25,4",27 / 27,35 / 35,62,"25,4",,100
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",5,TICHÝ Jiří,LGCPY,18003050,"20,0",29 / 29,33 / 33,62,"20,0",101,99
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",5,MOJŽÍŠOVÁ Veronika,GKBZA,09501021,"21,5",30 / 30,32 / 32,62,"21,5",103,101
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",5,RIKLOVÁ Alice,GCHOS,07800410,"20,5",31 / 31,31 / 31,62,"20,6",,103
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",9,NEJEDLÁ Markéta,,,BEZ,22 / 22,15 / 15,37,,155,
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",10,DVOŘÁK Petr,PGCGC,12500433,"31,7",,34 / 34,34,"31,7",,
+2017,Malevil,01. 10. 2017,"Společná HCP 18,1 - 54",11,ZÁHOŘÁK Marek,,00,BEZ,,15 / 15,15,,,
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,1,BŘEZINA Lukáš,GCKYN,15100113,"9,9",37 / 37,37 / 37,74,"9,7",80,80
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,2,FAFL Martin,GCDSR,07500765,"9,0",32 / 32,36 / 36,68,"9,0",84,81
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,2,EDL Milan,GKDDV,04700476,"6,7",35 / 35,33 / 33,68,"6,8",78,80
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,4,PETR Jaroslav,,,BEZ,33 / 33,34 / 34,67,,73,74
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,5,HONSA Jiří,,,BEZ,36 / 36,29 / 29,65,,84,91
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,6,OLIVA Vladimír,GCDSR,07500767,"9,8",27 / 27,37 / 37,64,"9,6",92,82
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,7,CHVAPIL Lukáš,GDSAP,19700318,"4,0",26 / 26,34 / 34,60,"4,1",84,76
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,8,HÁVA Filip,GCKYN,15100074,"9,0",26 / 26,30 / 30,56,"9,1",90,88
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,8,VOJTÍŠEK Petr,GCDSR,07500764,"9,0",26 / 26,30 / 30,56,"9,1",91,
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,8,VACULÍK Ondřej,CESGK,09805331,"10,2",28 / 28,28 / 28,56,"10,3",97,94
+2018,Malevil,30. 09. 2018,Společná HCP 0 - 12,11,LUXA Petr,GCDSR,07500763,"8,1",29 / 29,23 / 23,52,"8,2",88,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",1,HAVEL David,GKMES,11000122,"14,5",35 / 35,37 / 37,72,"14,2",89,88
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",2,CHVAPILOVÁ Zlata,CESGK,09806603,"36,0",32 / 32,36 / 36,68,"36,0",117,116
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",2,TICHÝ Jiří,LGCPY,18003050,"18,1",41 / 41,27 / 27,68,"18,2",90,102
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",4,KAHOUN Jakub,LGCPY,18002617,"13,3",37 / 37,30 / 30,67,"13,4",85,93
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",4,RIKLOVÁ Alice,CESGK,09806353,"19,3",38 / 38,29 / 29,67,"19,4",93,103
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",6,HÁVOVÁ Tereza,GCKYN,15100072,"23,9",31 / 31,35 / 35,66,"23,9",105,100
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",7,HAVLÍK Jaromír,GCSPR,16600201,"30,5",35 / 35,30 / 30,65,"30,6",107,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",8,TRNĚNÝ Milan,GCPDY,00801382,"16,7",35 / 35,27 / 27,62,"16,8",90,101
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",9,MOUDŘÍK Jan Ml.,,,BEZ,26 / 26,29 / 29,55,,,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",10,MOUDŘÍK Jan,CESGK,09805276,"23,7",34 / 34,20 / 20,54,"23,8",99,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",11,FRIEDL Leoš,GCTLC,10801425,"12,4",31 / 31,22 / 22,53,"12,5",90,101
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",12,ŠTĚPÁNEK Martin,CESGK,09804856,"12,7",28 / 28,24 / 24,52,"12,8",93,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",13,KAMENÍK Martin,CESGK,09805914,"16,3",23 / 23,21 / 21,44,"16,4",106,
+2018,Malevil,30. 09. 2018,"Společná HCP 12,1 - 36",14,CHVAPIL Tomáš,CESGK,09806602,"16,8",16 / 16,23 / 23,39,"16,9",115,103
 2019,Mariánské Lázně,05. 10. 2019,Netto 0 - 12,1,FENCL Jiří,GCDSR,07500799,"10,3",38 / 38,38 / 38,76,"9,9",84,83
 2019,Mariánské Lázně,05. 10. 2019,Netto 0 - 12,2,ŠUSTR Martin,GCDSR,07500759,"4,6",31 / 31,38 / 38,69,"4,3",83,76
 2019,Mariánské Lázně,05. 10. 2019,Netto 0 - 12,3,PETR Jaroslav,,,BEZ,34 / 34,35 / 35,69,,75,74
@@ -168,58 +168,60 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2022,Malevil,01. 10. 2022,Společná HCP 0-12,10,FAFL Martin,GCDSR,07500765,"7,3",26 / 26,34 / 34,60,"7,1",88,80
 2022,Malevil,01. 10. 2022,Společná HCP 0-12,11,ŽABA Filip,GCBBS,09403713,"11,4",28 / 28,30 / 30,58,"11,4",91,89
 2022,Malevil,01. 10. 2022,Společná HCP 0-12,12,ŽABA Adam,GCDSR,07500814,PRO,30 / 30,25 / 25,55,PRO,75,80
-2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",1,NOVÁK Petr,PRZGK,12200838,"19,2",39 / 39,39 / 39,78,"17,9",88,
-2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",2,HAVLÍK Jaromír,PRZGK,12200997,"24,9",37 / 37,35 / 35,72,"24,5",99,
+2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",1,NOVÁK Petr,PRZGK,12200838,"19,2",39 / 39,39 / 39,78,"17,9",,88
+2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",2,HAVLÍK Jaromír,PRZGK,12200997,"24,9",37 / 37,35 / 35,72,"24,5",,99
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",3,ŽELEZNÝ Jan,CESGK,09811363,"17,2",34 / 34,33 / 33,67,"17,1",91,92
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",4,VOJTÍŠEK Petr,CESGK,09804657,"12,7",36 / 36,31 / 31,67,"12,4",84,89
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",5,TRNĚNÝ Milan,GCPDY,00801382,"15,5",37 / 37,30 / 30,67,"14,9",89,95
-2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",6,TICHÝ Jiří,GCHBR,18800204,"20,5",27 / 27,39 / 39,66,"19,8",90,
+2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",6,TICHÝ Jiří,GCHBR,18800204,"20,5",27 / 27,39 / 39,66,"19,8",,90
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",7,DVOŘÁK Petr,CESGK,09808035,"18,6",37 / 37,28 / 28,65,"18,5",92,101
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",8,HŮLOVEC Tomáš,LGCPY,18004167,"13,8",31 / 31,32 / 32,63,"13,8",90,90
 2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",9,KAMENÍK Martin,CESGK,09805914,"18,3",26 / 26,25 / 25,51,"18,7",105,103
-2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",11,ŘÁDEK Pavel,CESGK,09807184,"14,5",,32 / 32,32,"14,5",91,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,1,LOUDOVÁ Jana,GCPRH,00900682,"15,3",37 / 37,,37,"14,6",92,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,2,POSEJPAL Adam,GCALF,04901275,"10,4",36 / 36,,36,"10,2",85,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,3,ŘÁDEK Pavel,CESGK,09807184,"13,3",34 / 34,,34,"13,2",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,4,TICHÝ Jiří,LGCPY,18003050,"18,9",34 / 34,,34,"18,5",97,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,5,ŽELEZNÝ Jan,CESGK,09811363,"16,6",34 / 34,,34,"16,4",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,6,HAVLÍK Jaromír,PRZGK,12200997,"23,6",33 / 33,,33,"23,8",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,7,TRNĚNÝ Milan,GCPDY,00801382,"16,1",31 / 31,,31,"16,1",99,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,8,CHVAPILOVÁ Zlata,CESGK,09806603,"31,7",30 / 30,,30,"31,7",118,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,9,ŠUBERTOVÁ Nicole,GCKON,04401049,"15,0",30 / 30,,30,"15,3",97,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,10,VOJTÍŠEK Petr,CESGK,09804657,"12,5",28 / 28,,28,"12,5",95,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,11,ŠUSTROVÁ Karolina,CESGK,09806507,"8,1",28 / 28,,28,"8,1",93,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,12,NOVÁK Petr,PRZGK,12200838,"17,9",26 / 26,,26,"18,3",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,13,OLIVA Vladimír,GCDSR,07500767,"8,1",26 / 26,,26,"8,1",96,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,14,FAFL Martin,GCDSR,07500765,"7,5",26 / 26,,26,"7,5",93,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,15,EDL Milan,GKDDV,04700476,"7,4",26 / 26,,26,"7,9",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,16,CHVAPIL Lukáš,CESGK,09805305,PRO,25 / 25,,25,PRO,86,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,17,BŘEZINA Lukáš,CESGK,09804708,"5,5",25 / 25,,25,"5,6",91,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,18,LUXA Petr,CESGK,09802864,"8,4",23 / 23,,23,"8,7",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,19,HAVEL David,GKMES,11000122,"13,8",22 / 22,,22,"13,8",108,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,20,CHVAPIL Tomáš,CESGK,09806602,"19,7",17 / 17,,17,"20,8",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,21,KAMENÍK Martin,CESGK,09805914,"17,2",16 / 16,,16,"17,2",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,1,CHVAPIL Lukáš,CESGK,09805305,PRO,25 / 25,,25,PRO,86,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,2,POSEJPAL Adam,GCALF,04901275,"10,4",24 / 36,,24,"10,2",85,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,3,LOUDOVÁ Jana,GCPRH,00900682,"15,3",20 / 37,,20,"14,6",92,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,4,ŘÁDEK Pavel,CESGK,09807184,"13,3",19 / 34,,19,"13,2",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,5,BŘEZINA Lukáš,CESGK,09804708,"5,5",19 / 25,,19,"5,6",91,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,6,OLIVA Vladimír,GCDSR,07500767,"8,1",18 / 26,,18,"8,1",96,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,7,FAFL Martin,GCDSR,07500765,"7,5",18 / 26,,18,"7,5",93,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,8,ŠUSTROVÁ Karolina,CESGK,09806507,"8,1",18 / 28,,18,"8,1",93,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,9,EDL Milan,GKDDV,04700476,"7,4",18 / 26,,18,"7,9",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,10,ŽELEZNÝ Jan,CESGK,09811363,"16,6",15 / 34,,15,"16,4",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,11,TICHÝ Jiří,LGCPY,18003050,"18,9",15 / 34,,15,"18,5",97,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,12,VOJTÍŠEK Petr,CESGK,09804657,"12,5",15 / 28,,15,"12,5",95,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,13,LUXA Petr,CESGK,09802864,"8,4",14 / 23,,14,"8,7",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,14,TRNĚNÝ Milan,GCPDY,00801382,"16,1",14 / 31,,14,"16,1",99,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,15,ŠUBERTOVÁ Nicole,GCKON,04401049,"15,0",13 / 30,,13,"15,3",97,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,16,NOVÁK Petr,PRZGK,12200838,"17,9",10 / 26,,10,"18,3",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,17,HAVEL David,GKMES,11000122,"13,8",10 / 22,,10,"13,8",108,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,18,HAVLÍK Jaromír,PRZGK,12200997,"23,6",10 / 33,,10,"23,8",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,19,CHVAPIL Tomáš,CESGK,09806602,"19,7",5 / 17,,5,"20,8",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,20,KAMENÍK Martin,CESGK,09805914,"17,2",5 / 16,,5,"17,2",,
-2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,21,CHVAPILOVÁ Zlata,CESGK,09806603,"31,7",4 / 30,,4,"31,7",118,
+2022,Malevil,01. 10. 2022,"Společná HCP 12,1-36",11,ŘÁDEK Pavel,CESGK,09807184,"14,5",,32 / 32,32,"14,5",,91
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,1,HAVLÍK Jaromír,PRZGK,12200997,"24,5",39 / 39,33 / 33,72,"23,8",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,2,POSEJPAL Adam,GCALF,04901275,"10,3",35 / 35,36 / 36,71,"10,2",82,85
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,3,CHVAPILOVÁ Zlata,CESGK,09806603,"32,3",37 / 37,30 / 30,67,"31,7",105,118
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,4,LOUDOVÁ Jana,GCPRH,00900682,"15,3",28 / 28,37 / 37,65,"14,6",96,92
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,4,TRNĚNÝ Milan,GCPDY,00801382,"15,8",34 / 34,31 / 31,65,"16,1",89,99
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,6,TICHÝ Jiří,LGCPY,18003050,"18,9",28 / 28,34 / 34,62,"18,5",,97
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,6,ŠUBERTOVÁ Nicole,GCKON,04401049,"15,0",32 / 32,30 / 30,62,"15,3",90,97
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,8,ŽELEZNÝ Jan,CESGK,09811363,"16,4",26 / 26,34 / 34,60,"16,4",98,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,9,VOJTÍŠEK Petr,CESGK,09804657,"12,5",30 / 30,28 / 28,58,"12,5",91,95
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,9,EDL Milan,GKDDV,04700476,"7,4",32 / 32,26 / 26,58,"7,9",82,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,9,BŘEZINA Lukáš,CESGK,09804708,"5,5",33 / 33,25 / 25,58,"5,6",78,91
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,12,FAFL Martin,GCDSR,07500765,"7,5",31 / 31,26 / 26,57,"7,5",83,93
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,13,LUXA Petr,CESGK,09802864,"8,4",28 / 28,23 / 23,51,"8,7",89,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,14,OLIVA Vladimír,GCDSR,07500767,"8,1",24 / 24,26 / 26,50,"8,1",97,96
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,15,NOVÁK Petr,PRZGK,12200838,"17,9",22 / 22,26 / 26,48,"18,3",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,16,HAVEL David,GKMES,11000122,"13,8",24 / 24,22 / 22,46,"13,8",99,108
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,17,CHVAPIL Lukáš,CESGK,09805305,PRO,18 / 18,25 / 25,43,PRO,92,86
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,17,KAMENÍK Martin,CESGK,09805914,"17,2",27 / 27,16 / 16,43,"17,2",104,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,19,CHVAPIL Tomáš,CESGK,09806602,"19,3",23 / 23,17 / 17,40,"20,8",108,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,20,ŘÁDEK Pavel,CESGK,09807184,"13,3",,34 / 34,34,"13,2",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,21,ŠAVRDA Petr,GCDSR,07500694,"4,2",33 / 33,,33,,76,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,21,ŠUSTR Martin,GCDSR,07500759,"4,2",33 / 33,,33,,79,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 netto,23,ŠUSTROVÁ Karolina,CESGK,09806507,"8,1",,28 / 28,28,"8,1",,93
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,1,CHVAPIL Lukáš,CESGK,09805305,PRO,,25 / 25,25,PRO,,86
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,2,POSEJPAL Adam,GCALF,04901275,"10,4",,24 / 36,24,"10,2",,85
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,3,LOUDOVÁ Jana,GCPRH,00900682,"15,3",,20 / 37,20,"14,6",,92
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,4,ŘÁDEK Pavel,CESGK,09807184,"13,3",,19 / 34,19,"13,2",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,4,BŘEZINA Lukáš,CESGK,09804708,"5,5",,19 / 25,19,"5,6",,91
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,6,OLIVA Vladimír,GCDSR,07500767,"8,1",,18 / 26,18,"8,1",,96
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,6,FAFL Martin,GCDSR,07500765,"7,5",,18 / 26,18,"7,5",,93
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,6,ŠUSTROVÁ Karolina,CESGK,09806507,"8,1",,18 / 28,18,"8,1",,93
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,6,EDL Milan,GKDDV,04700476,"7,4",,18 / 26,18,"7,9",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,10,ŽELEZNÝ Jan,CESGK,09811363,"16,6",,15 / 34,15,"16,4",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,10,TICHÝ Jiří,LGCPY,18003050,"18,9",,15 / 34,15,"18,5",,97
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,10,VOJTÍŠEK Petr,CESGK,09804657,"12,5",,15 / 28,15,"12,5",,95
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,13,LUXA Petr,CESGK,09802864,"8,4",,14 / 23,14,"8,7",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,13,TRNĚNÝ Milan,GCPDY,00801382,"16,1",,14 / 31,14,"16,1",,99
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,15,ŠUBERTOVÁ Nicole,GCKON,04401049,"15,0",,13 / 30,13,"15,3",,97
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,16,NOVÁK Petr,PRZGK,12200838,"17,9",,10 / 26,10,"18,3",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,16,HAVEL David,GKMES,11000122,"13,8",,10 / 22,10,"13,8",,108
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,16,HAVLÍK Jaromír,PRZGK,12200997,"23,6",,10 / 33,10,"23,8",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,19,CHVAPIL Tomáš,CESGK,09806602,"19,7",,5 / 17,5,"20,8",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,19,KAMENÍK Martin,CESGK,09805914,"17,2",,5 / 16,5,"17,2",,
+2023,Karlovy Vary,01. 10. 2023,Společná 0-54 brutto,21,CHVAPILOVÁ Zlata,CESGK,09806603,"31,7",,4 / 30,4,"31,7",,118
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,1,POSEJPAL Adam,GCALF,04901275,"10,4",37 / 37,31 / 31,68,"10,3",84,94
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,2,VOJTĚCHOVSKÝ Lukáš,GCCEL,10000419,"11,7",30 / 30,37 / 37,67,"12,1",93,87
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,3,VOJTÍŠEK Petr,CESGK,09804657,"9,8",32 / 32,33 / 33,65,"9,5",89,88
@@ -232,7 +234,7 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,10,ŽELEZNÝ Jan,CESGK,09811363,"8,1",20 / 20,26 / 26,46,"8,1",101,92
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,11,TRNKA Jakub,CESGK,09809513,"6,3",12 / 12,23 / 23,35,"8,3",111,96
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,12,ŠUSTR Martin,GCDSR,07500759,"5,0",30 / 30,,30,"5,0",86,
-2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,13,ŠUSTROVÁ Karolina,CESGK,09806507,"8,2",,28 / 28,28,"8,2",91,
+2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,13,ŠUSTROVÁ Karolina,CESGK,09806507,"8,2",,28 / 28,28,"8,2",,91
 2024,Telč,28. – 29. 09. 2024,HCP 0-12 stableford,14,EDL Milan,GKDDV,04700476,"7,2",25 / 25,,25,"7,6",,
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",1,FRIEDL Leoš,GCTLC,10801425,"12,5",38 / 38,32 / 32,70,"12,4",86,95
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",2,MAJŠAJDR Lubomír,KGCMA,06603863,"18,0",38 / 38,29 / 29,67,"17,6",94,107
@@ -244,7 +246,7 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",8,TRNKA Zbyněk,GOJIH,17300474,"28,3",30 / 30,29 / 29,59,"28,3",114,115
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",9,HAVLÍK Jaromír,PRZGK,12200997,"23,8",33 / 33,26 / 26,59,"24,1",105,113
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",10,TICHÝ Jiří,LGCPY,18003050,"18,1",37 / 37,22 / 22,59,"18,4",94,112
-2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",11,LOUDOVÁ Jana,GCPRH,00900682,"14,6",22 / 22,36 / 36,58,"14,5",91,
+2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",11,LOUDOVÁ Jana,GCPRH,00900682,"14,6",22 / 22,36 / 36,58,"14,5",,91
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",12,DVOŘÁK Petr,CESGK,09808035,"18,2",28 / 28,30 / 30,58,"18,2",105,104
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",13,CHVAPILOVÁ Zlata,,,"31,7",29 / 29,28 / 28,57,"31,7",120,119
 2024,Telč,28. – 29. 09. 2024,"HCP 12,1-54 stableford",14,ZAHRÁDKA Martin,KGCMA,06603785,"16,1",29 / 29,27 / 27,56,"18,5",99,105
@@ -264,7 +266,7 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,10,PETR Jaroslav,GKCBR,06700991,PRO,33 / 33,29 / 29,62,PRO,75,80
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,11,ŠUSTROVÁ Karolina,CESGK,09806507,"8,6",37 / 37,24 / 24,61,"8,7",83,97
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,12,ŽABA Adam,,,PRO,27 / 27,31 / 31,58,PRO,82,77
-2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,13,OLIVA Vladimír,GCDSR,07500767,"7,3",32 / 32,26 / 26,58,"8,1",91,
+2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,13,OLIVA Vladimír,GCDSR,07500767,"7,3",32 / 32,26 / 26,58,"8,1",,91
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,14,ŽELEZNÝ Jan,CESGK,09811363,"8,4",29 / 29,28 / 28,57,"8,4",93,93
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,15,EDL Milan,GKDDV,04700476,"6,8",31 / 31,25 / 25,56,"7,1",86,
 2025,Telč,27. – 28. 09. 2025,HCP 0-12 stableford,16,ŠAVRDA Petr,GCDSR,07500694,"4,8",26 / 26,29 / 29,55,"5,5",89,88
@@ -276,7 +278,7 @@ rok,hriste,datum,kategorie,poradi,jmeno,klub,clenske_cislo,hcp,kolo1,kolo2,skore
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",5,ŘÁDEK Pavel,CESGK,09807184,"14,9",40 / 40,34 / 34,74,"14,2",87,95
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",6,HŮLOVEC Tomáš,LGCPY,18004167,"15,3",36 / 36,29 / 29,65,"15,8",91,98
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",7,ŠTENGL Miroslav,CESGK,09813195,"13,0",25 / 25,37 / 37,62,"12,5",115,87
-2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",8,HAVLÍK Jaromír,LGCPY,18006930,"24,1",31 / 31,31 / 31,62,"24,4",107,
+2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",8,HAVLÍK Jaromír,LGCPY,18006930,"24,1",31 / 31,31 / 31,62,"24,4",,107
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",9,ŠÍSTEK Jakub,GCPDY,00801421,"20,1",30 / 30,31 / 31,61,"20,1",103,103
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",10,DVOŘÁK Petr,CESGK,09808035,"18,2",30 / 30,28 / 28,58,"18,2",102,106
 2025,Telč,27. – 28. 09. 2025,"HCP 12,1-54 stableford",11,HAVEL David,PGCGC,12503897,"15,2",28 / 28,29 / 29,57,"15,3",100,98
