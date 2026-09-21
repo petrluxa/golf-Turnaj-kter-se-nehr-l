@@ -39,7 +39,10 @@
       catch (e) { return fail(mount, 'Data stránky se nepodařilo načíst.'); }
     }
 
-    fetch(mount.dataset.src || 'turnaj.json')
+    /* cache: 'no-cache' = kopii z cache použij, ale vždy si ji nech u serveru ověřit.
+       Hosting k JSONu neposílá Cache-Control, takže by si ho prohlížeč po nahrání
+       nových výsledků jinak klidně pár hodin držel a stránka by ukazovala stará data. */
+    fetch(mount.dataset.src || 'turnaj.json', { cache: 'no-cache' })
       .then(function (r) {
         if (!r.ok) throw new Error(r.status);
         return r.json();
