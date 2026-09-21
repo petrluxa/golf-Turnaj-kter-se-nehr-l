@@ -59,7 +59,7 @@
 }
 
 .tkn *{box-sizing:border-box}
-.tkn .tkn-wrap{max-width:1020px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+.tkn .tkn-wrap{max-width:1320px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
 .tkn h1,.tkn h2,.tkn h3{font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;margin:0}
 .tkn a{color:var(--tkn-green)}
 
@@ -102,18 +102,18 @@
 .tkn .tkn-edition-title{font-family:Newsreader,serif;font-size:24px;font-weight:600}
 .tkn .tkn-hof-rany{white-space:nowrap}
 .tkn .tkn-poradi{color:var(--tkn-muted);font-family:"IBM Plex Mono",monospace;font-size:11.5px}
-.tkn .tkn-rany{color:var(--tkn-muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace}
+.tkn .tkn-rany{color:var(--tkn-muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace;margin-left:3px}
 .tkn .tkn-legenda{color:var(--tkn-muted);font-size:12.5px;max-width:62ch;margin:10px 0 0}
 .tkn .tkn-edition-note{color:var(--tkn-muted);font-size:13px;max-width:60ch;margin:8px 0 0;padding-left:9px;border-left:2px solid var(--tkn-line)}
 .tkn .tkn-edition-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tkn-muted);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
 
 /* ---------- výsledkové karty ---------- */
-.tkn .tkn-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px;align-items:start}
+.tkn .tkn-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(580px,1fr));gap:28px;align-items:start}
 .tkn .tkn-card{background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);box-shadow:var(--tkn-shadow);overflow:hidden}
-.tkn .tkn-card h3{font-family:"IBM Plex Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;border-bottom:1px solid var(--tkn-line);color:var(--tkn-muted);background:var(--tkn-paper-2)}
+.tkn .tkn-card h3{font-family:"IBM Plex Sans",sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:12px 17px;border-bottom:1px solid var(--tkn-line);color:var(--tkn-muted);background:var(--tkn-paper-2)}
 .tkn .tkn-scroll{overflow-x:auto}
 .tkn table{width:100%;border-collapse:collapse;font-size:13.5px;margin:0}
-.tkn th,.tkn td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--tkn-line-soft);white-space:nowrap}
+.tkn th,.tkn td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--tkn-line-soft);white-space:nowrap}
 .tkn thead th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--tkn-muted);font-weight:400;border-bottom:1px solid var(--tkn-line);background:transparent}
 .tkn tbody tr:last-child td{border-bottom:0}
 .tkn td.tkn-num,.tkn th.tkn-num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
@@ -148,10 +148,14 @@
 .tkn .tkn-footer p{margin:0 0 10px;max-width:62ch}
 .tkn .tkn-colophon{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 
+@media (max-width:760px){
+  .tkn .tkn-cards{gap:20px}
+  .tkn th,.tkn td{padding:8px 10px}
+}
 @media (max-width:520px){
   .tkn .tkn-masthead{padding-block:36px 22px}
   .tkn .tkn-wrap{padding-inline:16px}
-  .tkn th,.tkn td{padding:6px 8px}
+  .tkn th,.tkn td{padding:7px 9px}
 }
 @media (prefers-reduced-motion:reduce){
   .tkn *{animation:none!important;transition:none!important}

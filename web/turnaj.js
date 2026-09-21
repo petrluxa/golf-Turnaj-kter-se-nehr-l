@@ -50,7 +50,7 @@
         if (!uplny || rany.length !== sloupce.length) return;
         if (!rany.every(function (x) { return Number(x) > 0; })) return;
         var soucet = rany.reduce(function (a, x) { return a + Number(x); }, 0);
-        poradi.push({ jmeno: r[1], rany: soucet });
+        poradi.push({ jmeno: r[1], rany: soucet, kola: rany.slice() });
       });
     });
     return poradi.sort(function (a, b) { return a.rany - b.rany; }).slice(0, 3);
@@ -259,7 +259,9 @@
       }).join('');
       var rany = nejlepsiNaRany(e).map(function (h, i) {
         return '<div><span class="tkn-poradi">' + (i + 1) + '.</span> ' + esc(h.jmeno) +
-          ' — <strong>' + h.rany + '</strong> ran</div>';
+          ' — <strong>' + h.rany + '</strong> ran' +
+          (h.kola.length > 1 ? ' <span class="tkn-rany">(' + h.kola.map(esc).join('+') + ')</span>' : '') +
+          '</div>';
       }).join('');
       return '<tr><td class="tkn-year-cell">' + e.rok + '</td>' +
         '<td class="tkn-course">' + esc(e.hriste) + '</td>' +
