@@ -17,7 +17,7 @@ laravel/
   resources/views/golf/turnaj.blade.php
 data/
   vysledky.json           stejná data (zdrojová kopie)
-  vysledky.csv            výsledky jako tabulka, 223 řádků
+  vysledky.csv            výsledky jako tabulka, 230 řádků
 ```
 
 ## Kde to běží
@@ -132,7 +132,9 @@ se styly nepraly se zbytkem webu.
 
 Ročník bez výsledků má `"vysledky_publikovany": false` a nepovinnou
 `"poznamka"` — stránka mu sama vykreslí razítko. Ročník v budoucnosti
-dostane razítko „JEŠTĚ SE NEHRÁL“.
+dostane razítko „JEŠTĚ SE NEHRÁL“. U odehraného ročníku se
+`"poznamka"` vypíše pod hlavičkou ročníku — tak je odlišený nultý ročník
+2014, který se hrál pod jiným názvem a na jiném hřišti.
 
 ### Doplnění dalšího ročníku
 
@@ -142,10 +144,11 @@ dopočítají samy.
 
 ## Stav dat
 
-Staženo z turnajového systému ČGF 20. 9. 2026.
+Staženo z turnajového systému ČGF 21. 9. 2026.
 
 | Rok | Hřiště | Výsledky |
 |-----|--------|----------|
+| 2014 | Cínovec | ✅ nultý ročník, jiný název |
 | 2015 | Malevil | ✅ |
 | 2016 | Malevil | ✅ |
 | 2017 | Malevil | ❌ ČGF nezveřejnila |

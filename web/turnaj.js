@@ -113,7 +113,6 @@
       '  <footer class="tkn-footer">',
       '    <p><strong>Zdroj dat:</strong> turnajový systém České golfové federace (cgf.cz), staženo ' + esc(DATA['staženo'] || DATA.stazeno || '') + '.',
       '    Ročníky bez zveřejněné výsledkové listiny jsou v archivu označené; u roku 2020 je publikováno pouze první kolo.</p>',
-      '    <p>Skóre je uváděno jako stablefordové body ve tvaru <span class="tkn-club">netto / brutto</span>, tak jak je vede ČGF. RTD = odstoupení před hrou.</p>',
       '    <p class="tkn-colophon">Ředitel soutěže ' + esc(DATA.reditel_souteze || '') + '</p>',
       '  </footer>',
       '</div>'
@@ -165,7 +164,9 @@
         '<span>' + (e.pocet_kol === 2 ? '2 kola' : '1 kolo') + '</span>' +
         '<span>' + esc(e.nazev_v_cgf) + '</span>' +
         '<span><a href="' + esc(e.url) + '" target="_blank" rel="noopener">detail na cgf.cz ↗</a></span>' +
-        '</div>';
+        '</div>' +
+        (e.vysledky_publikovany && e.poznamka
+          ? '<p class="tkn-edition-note">' + esc(e.poznamka) + '</p>' : '');
 
       if (!e.vysledky_publikovany) {
         var future = e.rok >= new Date().getFullYear();
