@@ -32,9 +32,34 @@
      se nedohraje, takže ČGF žádný součet neuvádí. */
   function ranyKola(row, kol) { return row[kol === 2 ? 9 : 8] || []; }
 
+  /* Nejlepší tři na rány za ročník. Do pořadí se pouští jen hráč, který odehrál
+     všechna kola, jež má ročník zveřejněná, a ke každému z nich má známý hrubý
+     výsledek. Bez té podmínky by nedohraná jamka nebo vynechané kolo vypadaly
+     jako lepší výkon než poctivě dohraných osmnáct. */
+  function nejlepsiNaRany(e) {
+    var sloupce = (e.pocet_kol === 2 ? [5, 6] : [5]).filter(function (i) {
+      return e.kategorie.some(function (cat) {
+        return cat.poradi.some(function (r) { return r[i] !== '' && r[i] != null; });
+      });
+    });
+    var poradi = [];
+    e.kategorie.filter(isNetto).forEach(function (cat) {
+      cat.poradi.forEach(function (r) {
+        var rany = ranyKola(r, e.pocet_kol);
+        var uplny = sloupce.every(function (i) { return r[i] !== '' && r[i] != null; });
+        if (!uplny || rany.length !== sloupce.length) return;
+        if (!rany.every(function (x) { return Number(x) > 0; })) return;
+        var soucet = rany.reduce(function (a, x) { return a + Number(x); }, 0);
+        poradi.push({ jmeno: r[1], rany: soucet });
+      });
+    });
+    return poradi.sort(function (a, b) { return a.rany - b.rany; }).slice(0, 3);
+  }
+
   function bunkaKola(row, kol, ci) {
     var body = row[ci === 1 ? 5 : 6];
     if (body === '' || body == null) return '—';
+    if (!/\d/.test(body)) return esc(body);
     var r = ranyKola(row, kol)[ci - 1];
     return esc(body) + ' <span class="tkn-rany">(' + (r ? esc(r) : '—') + ')</span>';
   }
@@ -103,9 +128,9 @@
 
       '  <section class="tkn-section">',
       '    <div class="tkn-sec-head"><h2>Síň slávy</h2>',
-      '      <p class="tkn-sec-note">Vítězové jednotlivých kategorií po ročnících.</p></div>',
+      '      <p class="tkn-sec-note">Vítězové jednotlivých kategorií po ročnících. Vpravo tři nejnižší hrubé výsledky ročníku — počítají se jen hráči, kteří odehráli všechna kola.</p></div>',
       '    <div class="tkn-panel tkn-scroll"><table>',
-      '      <thead><tr><th>Rok</th><th>Hřiště</th><th>Vítězové kategorií</th></tr></thead>',
+      '      <thead><tr><th>Rok</th><th>Hřiště</th><th>Vítězové kategorií</th><th>Nejlépe na rány</th></tr></thead>',
       '      <tbody id="tkn-hof"></tbody></table></div>',
       '  </section>',
 
@@ -224,7 +249,7 @@
         var future = e.rok >= new Date().getFullYear();
         return '<tr class="is-blank"><td class="tkn-year-cell">' + e.rok + '</td>' +
           '<td class="tkn-course">' + esc(e.hriste) + '</td>' +
-          '<td class="tkn-win">' + (future ? 'zatím se nehrál' : 'výsledky nezveřejněny') + '</td></tr>';
+          '<td class="tkn-win" colspan="2">' + (future ? 'zatím se nehrál' : 'výsledky nezveřejněny') + '</td></tr>';
       }
       var wins = e.kategorie.map(function (cat) {
         var w = cat.poradi.filter(function (r) { return r[0] === '1'; })[0];
@@ -232,9 +257,14 @@
         return '<div><strong>' + esc(w[1]) + '</strong> — ' + cell(totalOf(w, e.pocet_kol)) + ' b. ' +
           '<span class="tkn-cat">' + esc(cat.nazev) + '</span></div>';
       }).join('');
+      var rany = nejlepsiNaRany(e).map(function (h, i) {
+        return '<div><span class="tkn-poradi">' + (i + 1) + '.</span> ' + esc(h.jmeno) +
+          ' — <strong>' + h.rany + '</strong> ran</div>';
+      }).join('');
       return '<tr><td class="tkn-year-cell">' + e.rok + '</td>' +
         '<td class="tkn-course">' + esc(e.hriste) + '</td>' +
-        '<td class="tkn-win">' + wins + '</td></tr>';
+        '<td class="tkn-win">' + wins + '</td>' +
+        '<td class="tkn-win tkn-hof-rany">' + (rany || '<span class="mala">—</span>') + '</td></tr>';
     }).join('');
 
     /* ---------- statistiky hráčů ---------- */

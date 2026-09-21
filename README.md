@@ -147,6 +147,12 @@ ztrátě bodu míč zvedá, jamka se nedohraje a ČGF pak žádný součet neuv�
 Týká se to 43 z 289 řádků. Stránka na takovém místě ukáže pomlčku — nesčítej
 zbylé jamky, vyšlo by číslo nižší, než co se odehrálo.
 
+V síni slávy je z ran dopočítaná trojice nejnižších hrubých výsledků ročníku.
+Do pořadí se pouští jen hráč, který odehrál všechna zveřejněná kola a ke každému
+má známý součet — jinak by nedohraná jamka nebo vynechané kolo vypadaly jako
+lepší výkon. Ze stejného důvodu se zahazuje nula: na kartě znamená odstoupení,
+ne nula ran.
+
 Protože řádek na konci povyrostl, **počet kol se pozná z `pocet_kol`, ne z délky
 řádku**. Kdo sáhne do `web/turnaj.js`, ať to nevrací zpátky.
 
