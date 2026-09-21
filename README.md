@@ -192,6 +192,18 @@ listině**; zbylých 53 resp. 46 účastníků do archivu nepatří. V sobotní 
 je v buňce `X / Y` u brutto kategorií jiné číslo než netto — bere se vždy
 **druhé**, tedy netto.
 
+### Odchylky od ČGF
+
+Archiv jinak reprodukuje ČGF věrně. Jediná výjimka je **Hana Krejčí v roce 2025**,
+kterou pořadatel podle dohody vede na HCP 36 místo 54; body jsou proto přepočítané
+z její skórkarty (47 a 38 místo 68 a 58, celkem 85 místo 126). Rány zůstávají, jak
+je zahrála. Původní hodnoty z ČGF jsou uložené v ročníku pod klíčem ,
+takže se nic neztratilo, a stránka to říká v poznámce u ročníku.
+
+Přepočet je ověřený tím, že stejný výpočet z její karty pro skutečný HCP 54 dá
+přesně to, co uvádí ČGF. Hrací handicap = ,
+rány se rozdělují po jamkách podle indexu obtížnosti.
+
 ### Doplnění dalšího ročníku
 
 Přidej do `rocniky` nový objekt a nahraď `public/golf/turnaj.json`.

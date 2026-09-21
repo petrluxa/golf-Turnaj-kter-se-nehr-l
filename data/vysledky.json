@@ -3355,7 +3355,7 @@
               ["87", "78"]
             ],
             [
-              "4",
+              "3",
               "FRIEDL Leoš",
               "GCTLC",
               "10801425",
@@ -3415,7 +3415,7 @@
               ["96", "88"]
             ],
             [
-              "9",
+              "8",
               "LUXA Petr",
               "CESGK",
               "09802864",
@@ -3463,7 +3463,7 @@
               ["82", "77"]
             ],
             [
-              "13",
+              "12",
               "OLIVA Vladimír",
               "GCDSR",
               "07500767",
@@ -3532,11 +3532,11 @@
               "KREJČÍ Hana",
               "GCPRH",
               "00902917",
-              "54,0",
-              "68 / 68",
-              "58 / 58",
-              "126",
-              "46,1",
+              "36,0",
+              "47 / 47",
+              "38 / 38",
+              "85",
+              "",
               ["105", "115"]
             ],
             [
@@ -3612,7 +3612,7 @@
               ["115", "87"]
             ],
             [
-              "8",
+              "7",
               "HAVLÍK Jaromír",
               "LGCPY",
               "18006930",
@@ -3672,7 +3672,7 @@
               ["122", "120"]
             ],
             [
-              "13",
+              "12",
               "VOJTĚCHOVSKÝ Lukáš",
               "GCCEL",
               "10000419",
@@ -3757,7 +3757,27 @@
             ]
           ]
         }
-      ]
+      ],
+      "upravy": [
+        {
+          "hrac": "KREJČÍ Hana",
+          "duvod": "dohoda pořadatele: hraje na HCP 36 místo 54",
+          "cgf": {
+            "hcp": "54,0",
+            "kolo1": "68 / 68",
+            "kolo2": "58 / 58",
+            "skore": "126",
+            "hcp_po": "46,1"
+          },
+          "v_archivu": {
+            "hcp": "36,0",
+            "kolo1": "47 / 47",
+            "kolo2": "38 / 38",
+            "skore": "85"
+          }
+        }
+      ],
+      "poznamka": "Hana Krejčí je v listině vedená na HCP 36 podle dohody pořadatele, ne na 54, jak ji uvádí ČGF. Body jsou proto přepočítané z její skórkarty — 47 a 38 místo 68 a 58. Rány zůstávají, jak je zahrála: 105 a 115."
     },
     {
       "rok": 2026,
