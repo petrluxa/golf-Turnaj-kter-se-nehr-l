@@ -100,6 +100,8 @@
 /* ---------- ročník ---------- */
 .tkn .tkn-edition{margin-bottom:20px}
 .tkn .tkn-edition-title{font-family:Newsreader,serif;font-size:24px;font-weight:600}
+.tkn .tkn-rany{color:var(--tkn-muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace}
+.tkn .tkn-legenda{color:var(--tkn-muted);font-size:12.5px;max-width:62ch;margin:10px 0 0}
 .tkn .tkn-edition-note{color:var(--tkn-muted);font-size:13px;max-width:60ch;margin:8px 0 0;padding-left:9px;border-left:2px solid var(--tkn-line)}
 .tkn .tkn-edition-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tkn-muted);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
 

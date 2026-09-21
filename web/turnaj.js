@@ -25,7 +25,19 @@
   }
   function cell(v) { return (v === '' || v == null) ? '—' : esc(v); }
   function isNetto(cat) { return !/brutto/i.test(cat.nazev); }
-  function totalOf(row) { return row.length === 9 ? row[7] : row[6]; }
+  function totalOf(row, kol) { return kol === 2 ? row[7] : row[6]; }
+
+  /* Poslední položka řádku je pole ran za jednotlivá kola. Chybí tam, kde hrubý
+     výsledek neexistuje — ve stablefordu se po ztrátě bodu míč zvedá a jamka
+     se nedohraje, takže ČGF žádný součet neuvádí. */
+  function ranyKola(row, kol) { return row[kol === 2 ? 9 : 8] || []; }
+
+  function bunkaKola(row, kol, ci) {
+    var body = row[ci === 1 ? 5 : 6];
+    if (body === '' || body == null) return '—';
+    var r = ranyKola(row, kol)[ci - 1];
+    return esc(body) + ' <span class="tkn-rany">(' + (r ? esc(r) : '—') + ')</span>';
+  }
 
   function boot() {
     var mount = document.getElementById(MOUNT_ID);
@@ -182,7 +194,7 @@
 
       var q = norm(query);
       $('tkn-results').innerHTML = '<div class="tkn-cards">' + e.kategorie.map(function (cat) {
-        var two = cat.poradi.some(function (r) { return r.length === 9; });
+        var two = e.pocet_kol === 2;
         var head = two
           ? '<tr><th>#</th><th>Hráč</th><th class="tkn-num">HCP</th><th class="tkn-num">1. kolo</th><th class="tkn-num">2. kolo</th><th class="tkn-num">Body</th></tr>'
           : '<tr><th>#</th><th>Hráč</th><th class="tkn-num">HCP</th><th class="tkn-num">Kolo</th><th class="tkn-num">Body</th></tr>';
@@ -194,14 +206,16 @@
             '<td class="tkn-pos">' + cell(r[0]) + '</td>' +
             '<td class="tkn-name">' + esc(r[1]) + (r[2] ? ' <span class="tkn-club">' + esc(r[2]) + '</span>' : '') + '</td>' +
             '<td class="tkn-num">' + cell(r[4]) + '</td>' +
-            '<td class="tkn-num">' + cell(r[5]) + '</td>' +
-            (two ? '<td class="tkn-num">' + cell(r[6]) + '</td>' : '') +
-            '<td class="tkn-num tkn-total">' + cell(totalOf(r)) + '</td>' +
+            '<td class="tkn-num">' + bunkaKola(r, e.pocet_kol, 1) + '</td>' +
+            (two ? '<td class="tkn-num">' + bunkaKola(r, e.pocet_kol, 2) + '</td>' : '') +
+            '<td class="tkn-num tkn-total">' + cell(totalOf(r, e.pocet_kol)) + '</td>' +
             '</tr>';
         }).join('');
         return '<div class="tkn-card"><h3>' + esc(cat.nazev) + '</h3>' +
           '<div class="tkn-scroll"><table><thead>' + head + '</thead><tbody>' + rows + '</tbody></table></div></div>';
-      }).join('') + '</div>';
+      }).join('') + '</div>' +
+      '<p class="tkn-legenda">V závorce je počet ran za kolo. Pomlčka znamená, že hrubý ' +
+      'výsledek neexistuje — ve stablefordu se po ztrátě bodu míč zvedá a jamka se nedohraje.</p>';
     }
 
     /* ---------- síň slávy ---------- */
@@ -215,7 +229,7 @@
       var wins = e.kategorie.map(function (cat) {
         var w = cat.poradi.filter(function (r) { return r[0] === '1'; })[0];
         if (!w) return '';
-        return '<div><strong>' + esc(w[1]) + '</strong> — ' + cell(totalOf(w)) + ' b. ' +
+        return '<div><strong>' + esc(w[1]) + '</strong> — ' + cell(totalOf(w, e.pocet_kol)) + ' b. ' +
           '<span class="tkn-cat">' + esc(cat.nazev) + '</span></div>';
       }).join('');
       return '<tr><td class="tkn-year-cell">' + e.rok + '</td>' +

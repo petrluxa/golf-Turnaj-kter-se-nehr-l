@@ -17,7 +17,7 @@ laravel/
   resources/views/golf/turnaj.blade.php
 data/
   vysledky.json           stejná data (zdrojová kopie)
-  vysledky.csv            výsledky jako tabulka, 230 řádků
+  vysledky.csv            výsledky jako tabulka, 289 řádků
 ```
 
 ## Kde to běží
@@ -117,12 +117,12 @@ se styly nepraly se zbytkem webu.
         {
           "nazev": "HCP 0-12 stableford",
           // řádek = [pořadí, jméno, klub, členské číslo, HCP,
-          //          kolo1, kolo2, skóre, HCP po]
+          //          kolo1, kolo2, skóre, HCP po, rány]
           // u jednokolových ročníků řádek nemá kolo2:
           //          [pořadí, jméno, klub, členské číslo, HCP,
-          //           kolo, skóre, HCP po]
+          //           kolo, skóre, HCP po, rány]
           "poradi": [["1", "VACULÍK Ondřej", "GCLIB", "05300549", "8,4",
-                      "38 / 38", "41 / 41", "79", "8,1"]]
+                      "38 / 38", "41 / 41", "79", "8,1", ["81", "79"]]]
         }
       ]
     }
@@ -135,6 +135,20 @@ Ročník bez výsledků má `"vysledky_publikovany": false` a nepovinnou
 dostane razítko „JEŠTĚ SE NEHRÁL“. U odehraného ročníku se
 `"poznamka"` vypíše pod hlavičkou ročníku — tak je odlišený nultý ročník
 2014, který se hrál pod jiným názvem a na jiném hřišti.
+
+### Rány
+
+Poslední položka řádku je pole ran za jednotlivá kola, vytažené ze skórkarty
+hráče na ČGF (`vysledkova-listina-hrace`). Ve výsledkové listině rány nejsou —
+ta zná jen stablefordové body.
+
+Pole je **prázdné tam, kde hrubý výsledek neexistuje**: ve stablefordu se po
+ztrátě bodu míč zvedá, jamka se nedohraje a ČGF pak žádný součet neuvádí.
+Týká se to 43 z 289 řádků. Stránka na takovém místě ukáže pomlčku — nesčítej
+zbylé jamky, vyšlo by číslo nižší, než co se odehrálo.
+
+Protože řádek na konci povyrostl, **počet kol se pozná z `pocet_kol`, ne z délky
+řádku**. Kdo sáhne do `web/turnaj.js`, ať to nevrací zpátky.
 
 ### Doplnění dalšího ročníku
 
@@ -151,12 +165,12 @@ Staženo z turnajového systému ČGF 21. 9. 2026.
 | 2014 | Cínovec | ✅ nultý ročník, jiný název |
 | 2015 | Malevil | ✅ |
 | 2016 | Malevil | ✅ |
-| 2017 | Malevil | ❌ ČGF nezveřejnila |
+| 2017 | Malevil | ✅ |
 | 2018 | Malevil | ✅ |
 | 2019 | Mariánské Lázně | ✅ |
 | 2020 | Kunětická Hora | ⚠️ jen 1. kolo |
 | 2021 | Kunětická Hora | ❌ ČGF nezveřejnila |
-| 2022 | Malevil | ❌ ČGF nezveřejnila |
+| 2022 | Malevil | ✅ |
 | 2023 | Karlovy Vary | ✅ netto i brutto |
 | 2024 | Telč | ✅ |
 | 2025 | Telč | ✅ |
