@@ -70,7 +70,7 @@
         });
       });
     });
-    return poradi.sort(function (a, b) { return a.rany - b.rany; }).slice(0, 3);
+    return poradi.sort(function (a, b) { return a.rany - b.rany; });
   }
 
   function bunkaKola(row, kol, ci) {
@@ -161,6 +161,8 @@
       '        <th class="tkn-num" data-sort="wins" tabindex="0" scope="col">Vítězství <span class="tkn-arrow"></span></th>',
       '        <th class="tkn-num" data-sort="podium" tabindex="0" scope="col">Pódium <span class="tkn-arrow"></span></th>',
       '        <th class="tkn-num" data-sort="best" tabindex="0" scope="col">Nejlepší <span class="tkn-arrow"></span></th>',
+      '        <th class="tkn-num" data-sort="ranyWins" tabindex="0" scope="col">Na rány <span class="tkn-arrow"></span></th>',
+      '        <th class="tkn-num" data-sort="nejKolo" tabindex="0" scope="col">Nejlepší kolo <span class="tkn-arrow"></span></th>',
       '        <th class="tkn-num" data-sort="last" tabindex="0" scope="col">Naposledy <span class="tkn-arrow"></span></th>',
       '      </tr></thead><tbody id="tkn-stats"></tbody></table></div>',
       '      <button class="tkn-more" id="tkn-more" type="button"></button>',
@@ -279,7 +281,7 @@
         return '<div><strong>' + esc(w[1]) + '</strong> — ' + cell(totalOf(w, e.pocet_kol)) + ' b. ' +
           '<span class="tkn-cat">' + esc(cat.nazev) + '</span></div>';
       }).join('');
-      var rany = nejlepsiNaRany(e).map(function (h, i) {
+      var rany = nejlepsiNaRany(e).slice(0, 3).map(function (h, i) {
         return '<div><span class="tkn-poradi">' + (i + 1) + '.</span> ' + esc(h.jmeno) +
           ' — <strong>' + h.rany + '</strong> ran' +
           (h.kola.length > 1 ? ' <span class="tkn-rany">(' + h.kola.map(esc).join('+') + ')</span>' : '') +
@@ -298,7 +300,13 @@
       e.kategorie.filter(isNetto).forEach(function (cat) {
         cat.poradi.forEach(function (r) {
           var name = r[1];
-          var s = stats[name] || (stats[name] = { name: name, starts: 0, wins: 0, podium: 0, best: 99, last: 0, club: r[2] });
+          var s = stats[name] || (stats[name] = { name: name, starts: 0, wins: 0, podium: 0, best: 99,
+                                                  ranyWins: 0, nejKolo: 999, last: 0, club: r[2] });
+          /* Nejlepší odehrané kolo — rány jsou v posledním poli řádku, po jedné na kolo. */
+          ranyKola(r, e.pocet_kol).forEach(function (x) {
+            var v = Number(x);
+            if (v > 0 && v < s.nejKolo) { s.nejKolo = v; }
+          });
           var pos = parseInt(r[0], 10);
           if (!seen[name]) { s.starts++; seen[name] = true; }
           if (pos === 1) s.wins++;
@@ -308,6 +316,14 @@
           if (r[2]) s.club = r[2];
         });
       });
+      /* Vítězství na rány = nejnižší součet ročníku. Shodný součet bere vítězství oběma. */
+      var naRany = nejlepsiNaRany(e);
+      if (naRany.length) {
+        var nej = naRany[0].rany;
+        naRany.forEach(function (h) {
+          if (h.rany === nej && stats[h.jmeno]) { stats[h.jmeno].ranyWins++; }
+        });
+      }
     });
     var allStats = Object.keys(stats).map(function (k) { return stats[k]; });
     var sortKey = 'starts', sortDir = -1, expanded = false;
@@ -327,6 +343,8 @@
           '<td class="tkn-num ' + (s.wins ? 'tkn-trophy' : '') + '">' + (s.wins || '—') + '</td>' +
           '<td class="tkn-num">' + (s.podium || '—') + '</td>' +
           '<td class="tkn-num">' + (s.best < 99 ? s.best + '.' : '—') + '</td>' +
+          '<td class="tkn-num ' + (s.ranyWins ? 'tkn-trophy' : '') + '">' + (s.ranyWins || '—') + '</td>' +
+          '<td class="tkn-num">' + (s.nejKolo < 999 ? s.nejKolo : '—') + '</td>' +
           '<td class="tkn-num">' + s.last + '</td></tr>';
       }).join('');
       $('tkn-more').textContent = expanded
@@ -343,7 +361,7 @@
       var go = function () {
         var k = th.getAttribute('data-sort');
         if (k === sortKey) { sortDir = -sortDir; }
-        else { sortKey = k; sortDir = (k === 'name' || k === 'best') ? 1 : -1; }
+        else { sortKey = k; sortDir = (k === 'name' || k === 'best' || k === 'nejKolo') ? 1 : -1; }
         renderStats();
       };
       th.addEventListener('click', go);

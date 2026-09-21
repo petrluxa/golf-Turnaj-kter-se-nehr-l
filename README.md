@@ -151,6 +151,10 @@ ztrátě bodu míč zvedá, jamka se nedohraje a ČGF pak žádný součet neuv�
 Týká se to 43 z 289 řádků. Stránka na takovém místě ukáže pomlčku — nesčítej
 zbylé jamky, vyšlo by číslo nižší, než co se odehrálo.
 
+Ve statistikách hráčů jsou z ran dopočítané dva sloupce: **Na rány** (kolikrát
+měl hráč v ročníku nejnižší součet — shodný součet bere vítězství oběma) a
+**Nejlepší kolo** (jeho nejnižší odehrané kolo vůbec).
+
 V síni slávy je z ran dopočítaná trojice nejnižších hrubých výsledků ročníku.
 Do pořadí se pouští jen hráč, který odehrál všechna zveřejněná kola a ke každému
 má známý součet — jinak by nedohraná jamka nebo vynechané kolo vypadaly jako
