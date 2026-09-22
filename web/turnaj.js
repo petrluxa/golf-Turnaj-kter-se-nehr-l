@@ -58,7 +58,11 @@
               if (v <= -2) { pocty.eagle++; } else if (v === -1) { pocty.birdie++; }
               else if (v === 0) { pocty.par++; } else if (v >= 3) { pocty.triple++; }
             });
-            ven.push({ jmeno: r[1], rok: e.rok, hriste: e.hriste, kolo: i + 1,
+            /* U ročníku zapsaného jako dva turnaje může mít každý den jiné hřiště —
+               v roce 2023 se první kolo hrálo na Cihelnách, druhé v Karlových Varech. */
+            var jineKolo = i === 0 ? e.prvni_kolo : e.druhe_kolo;
+            var hriste = (jineKolo && jineKolo.hriste) ? jineKolo.hriste : e.hriste;
+            ven.push({ jmeno: r[1], rok: e.rok, hriste: hriste, kolo: i + 1,
                        rany: Number(rany[i]) || 0, uplne: uplne, jamky: d,
                        eagle: pocty.eagle, birdie: pocty.birdie, par: pocty.par, triple: pocty.triple });
           }
@@ -409,7 +413,9 @@
       (eagly.length
         ? '<div class="tkn-eagly">' + eagly.map(function (e) {
             return '<div class="tkn-rekord-radek"><span class="tkn-rekord-hodnota">' + e.jamka +
-              '. jamka</span> ' + kdo(e.k) + '</div>';
+              '. jamka</span> ' + esc(e.k.jmeno) +
+              ' <span class="tkn-kdy">' + esc(e.k.hriste) + ' ' + e.k.rok +
+              ', ' + e.k.kolo + '. kolo</span></div>';
           }).join('') + '</div>'
         : '<div class="tkn-rekord-radek">zatím žádný</div>') + '</div>';
 
