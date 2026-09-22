@@ -200,9 +200,9 @@ položka na kolo, hodnoty oddělené čárkou. `x` znamená nedohranou jamku. Da
 pocházejí ze skórkaret hráčů na ČGF (`vysledkova-listina-hrace`), ve výsledkové
 listině nejsou.
 
-Sekce **Rekordy** se z toho počítá celá na stránce: nejnižší a nejvyšší kolo,
-nejvíc birdie, parů a triple bogey v kole i za ročník, a seznam všech eaglů
-i s číslem jamky. Rekordy za kolo berou jen dohraných osmnáct jamek — u nedohrané
+Sekce **Rekordy** se z toho počítá celá na stránce: nejvíc hráčů na ročníku,
+nejnižší a nejvyšší kolo, nejvíc birdie, parů a triple bogey v kole i za ročník,
+a seznam všech eaglů i s číslem jamky. Rekordy za kolo berou jen dohraných osmnáct jamek — u nedohrané
 se neví, kolik ran by stála.
 
 Každé odehrané kolo se počítá jednou, i když je hráč ve dvou kategoriích

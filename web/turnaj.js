@@ -377,7 +377,18 @@
     function kdo(k) { return esc(k.jmeno) + ' <span class="tkn-kdy">' + k.rok +
       (k.kolo ? ', ' + k.kolo + '. kolo' : '') + '</span>'; }
 
+    /* Účast: hráč je v netto i brutto kategorii, započítá se jednou. Ročník
+       vystupuje v rekordu na místě hráče — kolo 0 potlačí "X. kolo". */
+    var ucast = editions.filter(function (e) { return e.vysledky_publikovany; }).map(function (e) {
+      var lide = {};
+      e.kategorie.filter(isNetto).forEach(function (cat) {
+        cat.poradi.forEach(function (r) { lide[r[1]] = true; });
+      });
+      return { jmeno: e.hriste, rok: e.rok, kolo: 0, rany: 0, hracu: Object.keys(lide).length };
+    });
+
     var karty = [
+      ['Nejvíc hráčů', nejlepsi(ucast, 'hracu', -1, function (u) { return u.hracu + ' hráčů'; })],
       ['Nejnižší kolo', nejlepsi(dohrana, 'rany', 1, function (k) { return k.rany + ' ran'; })],
       ['Nejvyšší kolo', nejlepsi(dohrana, 'rany', -1, function (k) { return k.rany + ' ran'; })],
       ['Nejvíc birdie v kole', nejlepsi(dohrana, 'birdie', -1, function (k) { return k.birdie + '×'; })],
