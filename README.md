@@ -17,7 +17,7 @@ laravel/
   resources/views/golf/turnaj.blade.php
 data/
   vysledky.json           stejná data (zdrojová kopie)
-  vysledky.csv            výsledky jako tabulka, 291 řádků
+  vysledky.csv            výsledky jako tabulka, 320 řádků
 ```
 
 ## Kde to běží
@@ -174,6 +174,7 @@ v týdnu: když je datum ročníku neděle, chybí k němu sobota.
 | Ročník | Sobota v ČGF | Hřiště |
 |---|---|---|
 | 2016 | `1300083013` „HAPPY GOLF tour“ — hráči vedení jako **nezařazení, bez výsledků** | Malevil |
+| 2020 | `1300113504` nedělní kolo pod vlastním záznamem (klíč `"druhe_kolo"`) | Kunětická Hora |
 | 2017 | `1300089002` „Turnaje s luxusními výhrami…“ | Malevil |
 | 2018 | `1300098420` totéž | Malevil |
 | 2023 | `1300132156` „Luxa tour“ | Cihelny |
@@ -212,7 +213,7 @@ dopočítají samy.
 
 ## Stav dat
 
-Staženo z turnajového systému ČGF 21. 9. 2026.
+Staženo z turnajového systému ČGF 22. 9. 2026.
 
 | Rok | Hřiště | Výsledky |
 |-----|--------|----------|
@@ -222,8 +223,8 @@ Staženo z turnajového systému ČGF 21. 9. 2026.
 | 2017 | Malevil | ✅ |
 | 2018 | Malevil | ✅ |
 | 2019 | Mariánské Lázně | ✅ |
-| 2020 | Kunětická Hora | ⚠️ jen 1. kolo |
-| 2021 | Kunětická Hora | ❌ ČGF nezveřejnila |
+| 2020 | Kunětická Hora | ✅ obě kola, každé pod vlastním id |
+| 2021 | Kunětická Hora | ✅ |
 | 2022 | Malevil | ✅ |
 | 2023 | Karlovy Vary | ✅ netto i brutto |
 | 2024 | Telč | ✅ |

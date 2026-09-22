@@ -73,6 +73,14 @@
     return poradi.sort(function (a, b) { return a.rany - b.rany; });
   }
 
+  /* Dvoudenní ročníky, které ČGF vede jako dva turnaje, mají odkaz na ten druhý den. */
+  function odkazNaKolo(kolo, popis) {
+    if (!kolo) { return ''; }
+    return '<span>' + popis + (kolo.bez_vysledku ? ' bez výsledků' : '') + ': ' +
+      '<a href="' + esc(kolo.url) + '" target="_blank" rel="noopener">' +
+      esc(kolo.nazev_v_cgf) + ' ↗</a></span>';
+  }
+
   function bunkaKola(row, kol, ci) {
     var body = row[ci === 1 ? 5 : 6];
     if (body === '' || body == null) return '—';
@@ -223,11 +231,8 @@
         '<span>' + (e.pocet_kol === 2 ? '2 kola' : '1 kolo') + '</span>' +
         '<span>' + esc(e.nazev_v_cgf) + '</span>' +
         '<span><a href="' + esc(e.url) + '" target="_blank" rel="noopener">detail na cgf.cz ↗</a></span>' +
-        (e.prvni_kolo
-          ? '<span>' + (e.prvni_kolo.bez_vysledku ? '1. kolo bez výsledků' : '1. kolo') + ': ' +
-            '<a href="' + esc(e.prvni_kolo.url) + '" target="_blank" rel="noopener">' +
-            esc(e.prvni_kolo.nazev_v_cgf) + ' ↗</a></span>'
-          : '') +
+        odkazNaKolo(e.prvni_kolo, '1. kolo') +
+        odkazNaKolo(e.druhe_kolo, '2. kolo') +
         '</div>' +
         (e.vysledky_publikovany && e.poznamka
           ? '<p class="tkn-edition-note">' + esc(e.poznamka) + '</p>' : '');
