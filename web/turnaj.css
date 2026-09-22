@@ -107,6 +107,16 @@
 .tkn .tkn-edition-note{color:var(--tkn-muted);font-size:13px;max-width:60ch;margin:8px 0 0;padding-left:9px;border-left:2px solid var(--tkn-line)}
 .tkn .tkn-edition-meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--tkn-muted);display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
 
+/* ---------- rekordy ---------- */
+.tkn .tkn-rekordy{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:16px;align-items:start}
+.tkn .tkn-rekord{background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);padding:13px 16px 15px}
+.tkn .tkn-rekord h3{font-family:"IBM Plex Sans",sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tkn-muted);margin:0 0 8px}
+.tkn .tkn-rekord-radek{font-size:14px;line-height:1.5;padding:2px 0}
+.tkn .tkn-rekord-hodnota{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--tkn-green)}
+.tkn .tkn-kdy{color:var(--tkn-muted);font-size:12px;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+.tkn .tkn-rekord-siroky{grid-column:1/-1}
+.tkn .tkn-eagly{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:0 18px}
+
 /* ---------- výsledkové karty ---------- */
 .tkn .tkn-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(580px,100%),1fr));gap:28px;align-items:start}
 .tkn .tkn-card{background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);box-shadow:var(--tkn-shadow);overflow:hidden}

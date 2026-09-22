@@ -32,6 +32,42 @@
      se nedohraje, takže ČGF žádný součet neuvádí. */
   function ranyKola(row, kol) { return row[kol === 2 ? 9 : 8] || []; }
 
+  /* Rozdíly vůči paru po jamkách, jedna položka na kolo. "x" = nedohraná jamka. */
+  function jamkyKola(row, kol) { return row[kol === 2 ? 10 : 9] || []; }
+
+  /* Každé odehrané kolo jednou — hráč bývá ve dvou kategoriích (netto i brutto),
+     ale odehrál je jen jednou. Rekordy po kolech berou jen dohraných osmnáct;
+     u nedohrané jamky se neví, kolik ran by stála. */
+  function vsechnaKola(editions) {
+    var videno = {}, ven = [];
+    editions.filter(function (e) { return e.vysledky_publikovany; }).forEach(function (e) {
+      var kol = e.pocet_kol === 2 ? 2 : 1;
+      e.kategorie.forEach(function (cat) {
+        cat.poradi.forEach(function (r) {
+          var jamky = jamkyKola(r, e.pocet_kol), rany = ranyKola(r, e.pocet_kol);
+          for (var i = 0; i < kol; i++) {
+            var zapis = jamky[i];
+            if (!zapis) { continue; }
+            var klic = e.rok + '|' + r[1] + '|' + (i + 1);
+            if (videno[klic]) { continue; }
+            videno[klic] = true;
+            var d = zapis.split(','), pocty = { eagle: 0, birdie: 0, par: 0, triple: 0 }, uplne = true;
+            d.forEach(function (x) {
+              if (x === 'x') { uplne = false; return; }
+              var v = Number(x);
+              if (v <= -2) { pocty.eagle++; } else if (v === -1) { pocty.birdie++; }
+              else if (v === 0) { pocty.par++; } else if (v >= 3) { pocty.triple++; }
+            });
+            ven.push({ jmeno: r[1], rok: e.rok, hriste: e.hriste, kolo: i + 1,
+                       rany: Number(rany[i]) || 0, uplne: uplne, jamky: d,
+                       eagle: pocty.eagle, birdie: pocty.birdie, par: pocty.par, triple: pocty.triple });
+          }
+        });
+      });
+    });
+    return ven;
+  }
+
   /* Nejlepší tři na rány za ročník. Do pořadí se pouští jen hráč, který odehrál
      všechna kola, jež má ročník zveřejněná, a ke každému z nich má známý hrubý
      výsledek. Bez té podmínky by nedohraná jamka nebo vynechané kolo vypadaly
@@ -157,6 +193,12 @@
       '    <div class="tkn-panel tkn-scroll"><table class="tkn-hof-table">',
       '      <thead><tr><th>Rok</th><th>Hřiště</th><th>Vítězové kategorií</th><th>Nejlépe na rány</th></tr></thead>',
       '      <tbody id="tkn-hof"></tbody></table></div>',
+      '  </section>',
+
+      '  <section class="tkn-section">',
+      '    <div class="tkn-sec-head"><h2>Rekordy</h2>',
+      '      <p class="tkn-sec-note">Ze skórkaret hráčů na ČGF. Rekordy za kolo počítají jen dohraných osmnáct jamek.</p></div>',
+      '    <div class="tkn-rekordy" id="tkn-rekordy"></div>',
       '  </section>',
 
       '  <section class="tkn-section">',
@@ -298,6 +340,67 @@
         '<td class="tkn-win tkn-hof-rany" data-popis="Nejlépe na rány">' +
         (rany || '<span class="mala">—</span>') + '</td></tr>';
     }).join('');
+
+    /* ---------- rekordy ---------- */
+    var kolaVse = vsechnaKola(editions);
+    var dohrana = kolaVse.filter(function (k) { return k.uplne && k.rany > 0; });
+
+    function nejlepsi(zdroj, klic, smer, popis) {
+      var serazene = zdroj.slice().sort(function (a, b) {
+        var d = smer * (a[klic] - b[klic]);
+        return d !== 0 ? d : a.rany - b.rany;
+      });
+      if (!serazene.length) { return null; }
+      var meta = serazene[0][klic];
+      return serazene.filter(function (k) { return k[klic] === meta; })
+        .slice(0, 3).map(function (k) { return { k: k, hodnota: popis(k) }; });
+    }
+
+    /* Součty za ročník: sčítají se jen dohraná kola téhož hráče. */
+    var zaRocnik = {};
+    dohrana.forEach(function (k) {
+      var klic = k.rok + '|' + k.jmeno;
+      var z = zaRocnik[klic] || (zaRocnik[klic] = { jmeno: k.jmeno, rok: k.rok, hriste: k.hriste,
+                                                   birdie: 0, par: 0, kol: 0, rany: 0 });
+      z.birdie += k.birdie; z.par += k.par; z.kol++; z.rany += k.rany;
+    });
+    var rocniky = Object.keys(zaRocnik).map(function (x) { return zaRocnik[x]; });
+
+    var eagly = [];
+    kolaVse.forEach(function (k) {
+      k.jamky.forEach(function (x, i) {
+        if (x !== 'x' && Number(x) <= -2) { eagly.push({ k: k, jamka: i + 1 }); }
+      });
+    });
+    eagly.sort(function (a, b) { return a.k.rok - b.k.rok || a.k.kolo - b.k.kolo || a.jamka - b.jamka; });
+
+    function kdo(k) { return esc(k.jmeno) + ' <span class="tkn-kdy">' + k.rok +
+      (k.kolo ? ', ' + k.kolo + '. kolo' : '') + '</span>'; }
+
+    var karty = [
+      ['Nejnižší kolo', nejlepsi(dohrana, 'rany', 1, function (k) { return k.rany + ' ran'; })],
+      ['Nejvyšší kolo', nejlepsi(dohrana, 'rany', -1, function (k) { return k.rany + ' ran'; })],
+      ['Nejvíc birdie v kole', nejlepsi(dohrana, 'birdie', -1, function (k) { return k.birdie + '×'; })],
+      ['Nejvíc parů v kole', nejlepsi(dohrana, 'par', -1, function (k) { return k.par + '×'; })],
+      ['Nejvíc triple bogey a horších', nejlepsi(dohrana, 'triple', -1, function (k) { return k.triple + '×'; })],
+      ['Nejvíc birdie za ročník', nejlepsi(rocniky, 'birdie', -1, function (z) { return z.birdie + '×'; })],
+      ['Nejvíc parů za ročník', nejlepsi(rocniky, 'par', -1, function (z) { return z.par + '×'; })]
+    ];
+
+    $('tkn-rekordy').innerHTML = karty.filter(function (x) { return x[1]; }).map(function (x) {
+      return '<div class="tkn-rekord"><h3>' + esc(x[0]) + '</h3>' +
+        x[1].map(function (p) {
+          return '<div class="tkn-rekord-radek"><span class="tkn-rekord-hodnota">' + esc(p.hodnota) +
+            '</span> ' + kdo(p.k) + '</div>';
+        }).join('') + '</div>';
+    }).join('') +
+      '<div class="tkn-rekord tkn-rekord-siroky"><h3>Eagle (' + eagly.length + ')</h3>' +
+      (eagly.length
+        ? '<div class="tkn-eagly">' + eagly.map(function (e) {
+            return '<div class="tkn-rekord-radek"><span class="tkn-rekord-hodnota">' + e.jamka +
+              '. jamka</span> ' + kdo(e.k) + '</div>';
+          }).join('') + '</div>'
+        : '<div class="tkn-rekord-radek">zatím žádný</div>') + '</div>';
 
     /* ---------- statistiky hráčů ---------- */
     var stats = {};

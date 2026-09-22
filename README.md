@@ -193,6 +193,21 @@ listině**; zbylých 53 resp. 46 účastníků do archivu nepatří. V sobotní 
 je v buňce `X / Y` u brutto kategorií jiné číslo než netto — bere se vždy
 **druhé**, tedy netto.
 
+### Rekordy a data po jamkách
+
+Poslední položka řádku je pole `"jamky"` — rozdíly vůči paru po jamkách, jedna
+položka na kolo, hodnoty oddělené čárkou. `x` znamená nedohranou jamku. Data
+pocházejí ze skórkaret hráčů na ČGF (`vysledkova-listina-hrace`), ve výsledkové
+listině nejsou.
+
+Sekce **Rekordy** se z toho počítá celá na stránce: nejnižší a nejvyšší kolo,
+nejvíc birdie, parů a triple bogey v kole i za ročník, a seznam všech eaglů
+i s číslem jamky. Rekordy za kolo berou jen dohraných osmnáct jamek — u nedohrané
+se neví, kolik ran by stála.
+
+Každé odehrané kolo se počítá jednou, i když je hráč ve dvou kategoriích
+(netto i brutto mají vlastní kartu na tentýž den).
+
 ### Odchylky od ČGF
 
 Archiv jinak reprodukuje ČGF věrně. Jediná výjimka je **Hana Krejčí v roce 2025**,
