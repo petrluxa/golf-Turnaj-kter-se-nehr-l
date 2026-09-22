@@ -154,7 +154,7 @@
       '  <section class="tkn-section">',
       '    <div class="tkn-sec-head"><h2>Síň slávy</h2>',
       '      <p class="tkn-sec-note">Vítězové jednotlivých kategorií po ročnících. Vpravo tři nejnižší hrubé výsledky ročníku — počítají se jen hráči, kteří odehráli všechna kola.</p></div>',
-      '    <div class="tkn-panel tkn-scroll"><table>',
+      '    <div class="tkn-panel tkn-scroll"><table class="tkn-hof-table">',
       '      <thead><tr><th>Rok</th><th>Hřiště</th><th>Vítězové kategorií</th><th>Nejlépe na rány</th></tr></thead>',
       '      <tbody id="tkn-hof"></tbody></table></div>',
       '  </section>',
@@ -294,8 +294,9 @@
       }).join('');
       return '<tr><td class="tkn-year-cell">' + e.rok + '</td>' +
         '<td class="tkn-course">' + esc(e.hriste) + '</td>' +
-        '<td class="tkn-win">' + wins + '</td>' +
-        '<td class="tkn-win tkn-hof-rany">' + (rany || '<span class="mala">—</span>') + '</td></tr>';
+        '<td class="tkn-win" data-popis="Vítězové kategorií">' + wins + '</td>' +
+        '<td class="tkn-win tkn-hof-rany" data-popis="Nejlépe na rány">' +
+        (rany || '<span class="mala">—</span>') + '</td></tr>';
     }).join('');
 
     /* ---------- statistiky hráčů ---------- */
