@@ -17,7 +17,7 @@ laravel/
   resources/views/golf/turnaj.blade.php
 data/
   vysledky.json           stejná data (zdrojová kopie)
-  vysledky.csv            výsledky jako tabulka, 320 řádků
+  vysledky.csv            výsledky jako tabulka, 357 řádků
 ```
 
 ## Kde to běží
@@ -148,7 +148,7 @@ a vypsaly se u špatného kola.
 
 Prázdné je tam, kde hrubý výsledek neexistuje: ve stablefordu se po
 ztrátě bodu míč zvedá, jamka se nedohraje a ČGF pak žádný součet neuvádí.
-Týká se to 43 z 289 řádků. Stránka na takovém místě ukáže pomlčku — nesčítej
+Týká se to 73 z 622 odehraných kol. Stránka na takovém místě ukáže pomlčku — nesčítej
 zbylé jamky, vyšlo by číslo nižší, než co se odehrálo.
 
 Ve statistikách hráčů jsou z ran dopočítané dva sloupce: **Na rány** (kolikrát
@@ -210,7 +210,7 @@ Každé odehrané kolo se počítá jednou, i když je hráč ve dvou kategorií
 
 ### Odchylky od ČGF
 
-Archiv jinak reprodukuje ČGF věrně. Jediná výjimka je **Hana Krejčí v roce 2025**,
+Archiv jinak reprodukuje ČGF věrně. Výjimky jsou dvě. První je **Hana Krejčí v roce 2025**,
 kterou pořadatel podle dohody vede na HCP 36 místo 54; body jsou proto přepočítané
 z její skórkarty (47 a 38 místo 68 a 58, celkem 85 místo 126). Rány zůstávají, jak
 je zahrála. Původní hodnoty z ČGF jsou uložené v ročníku pod klíčem `"upravy"`,
@@ -220,6 +220,12 @@ Přepočet je ověřený tím, že stejný výpočet z její karty pro skutečn�
 přesně to, co uvádí ČGF. Hrací handicap = `round(index × SR/113 + (CR − par))`, rány se rozdělují
 po jamkách podle indexu obtížnosti.
 
+Druhá je **Alice Riklová v roce 2026**. ČGF ji tam vede pod jiným, duplicitním
+záznamem bez klubu a členského čísla, jméno bez čárky: „RIKLOVA Alice“. Statistiky páruje
+stránka podle přesného jména, takže by vyšla jako jiná hráčka než „RIKLOVÁ Alice“
+ze sedmi předchozích ročníků. Jméno je proto sjednocené na RIKLOVÁ, výsledek se nemění.
+Zápis z ČGF je v ročníku pod klíčem `"upravy"`.
+
 ### Doplnění dalšího ročníku
 
 Přidej do `rocniky` nový objekt a nahraď `public/golf/turnaj.json`.
@@ -228,7 +234,7 @@ dopočítají samy.
 
 ## Stav dat
 
-Staženo z turnajového systému ČGF 22. 9. 2026.
+Staženo z turnajového systému ČGF 28. 9. 2026.
 
 | Rok | Hřiště | Výsledky |
 |-----|--------|----------|
@@ -244,4 +250,4 @@ Staženo z turnajového systému ČGF 22. 9. 2026.
 | 2023 | Karlovy Vary | ✅ netto i brutto |
 | 2024 | Telč | ✅ |
 | 2025 | Telč | ✅ |
-| 2026 | Telč | zatím se nehrál (26. 9. 2026) |
+| 2026 | Telč | ✅ |
