@@ -4971,7 +4971,307 @@
             "jmeno": "RIKLOVÁ Alice"
           }
         }
-      ]
+      ],
+      "vlozene_souteze": {
+        "zdroj": "Aplikace Caddiee, ve které se soutěže hrály — ČGF vložené soutěže neeviduje.",
+        "jamkove": [
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 5,
+            "kolo": 1,
+            "vitez": "DVOŘÁK Petr",
+            "hodnota": "440"
+          },
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 10,
+            "kolo": 1,
+            "vitez": "KURKA Josef",
+            "hodnota": "244"
+          },
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 16,
+            "kolo": 1,
+            "vitez": "JEBAVÝ Lukáš",
+            "hodnota": "94"
+          },
+          {
+            "soutez": "Longest Drive",
+            "druh": "ld",
+            "jamka": 18,
+            "kolo": 1,
+            "vitez": "OLIVA Vladimír",
+            "hodnota": "356"
+          },
+          {
+            "soutez": "Approach",
+            "druh": "ntp",
+            "jamka": 1,
+            "kolo": 2,
+            "vitez": "KAMENÍK Martin",
+            "hodnota": ""
+          },
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 5,
+            "kolo": 2,
+            "vitez": "ŠAVRDA Petr",
+            "hodnota": "430"
+          },
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 10,
+            "kolo": 2,
+            "vitez": "HÁVA Filip",
+            "hodnota": "1034"
+          },
+          {
+            "soutez": "Nearest to the Pin",
+            "druh": "ntp",
+            "jamka": 16,
+            "kolo": 2,
+            "vitez": "OLIVA Vladimír",
+            "hodnota": "316"
+          }
+        ],
+        "birdie": {
+          "popis": "Tři skupiny podle handicapu, v každé dva výherci po 600 Kč. Eagle se počítá jako tři birdie, při shodě rozhodují pary.",
+          "skupiny": [
+            {
+              "nazev": "Skupina 1",
+              "poradi": [
+                {
+                  "jmeno": "BŘEZINA Lukáš",
+                  "birdie": 3,
+                  "eagle": 0,
+                  "pary": 17,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "KURKA Josef",
+                  "birdie": 3,
+                  "eagle": 0,
+                  "pary": 11,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "OLIVA Vladimír",
+                  "birdie": 0,
+                  "eagle": 1,
+                  "pary": 10,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "ŽELEZNÝ Jan",
+                  "birdie": 3,
+                  "eagle": 0,
+                  "pary": 10,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "ŽABA Adam",
+                  "birdie": 2,
+                  "eagle": 0,
+                  "pary": 19,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "VOJTÍŠEK Petr",
+                  "birdie": 2,
+                  "eagle": 0,
+                  "pary": 10,
+                  "vyhra": false
+                }
+              ]
+            },
+            {
+              "nazev": "Skupina 2",
+              "poradi": [
+                {
+                  "jmeno": "MAJŠAJDR Lubomír",
+                  "birdie": 3,
+                  "eagle": 0,
+                  "pary": 12,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "FRIEDL Leoš",
+                  "birdie": 3,
+                  "eagle": 0,
+                  "pary": 9,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "HÁVA Filip",
+                  "birdie": 2,
+                  "eagle": 0,
+                  "pary": 10,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "VOJTĚCHOVSKÝ Lukáš",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 14,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "ŠTENGL Miroslav",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 10,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "LOUDOVÁ Jana",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 8,
+                  "vyhra": false
+                }
+              ]
+            },
+            {
+              "nazev": "Skupina 3",
+              "poradi": [
+                {
+                  "jmeno": "DVOŘÁK Petr",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 7,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "ŠIMŮNKOVÁ Lucie",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 5,
+                  "vyhra": true
+                },
+                {
+                  "jmeno": "ŠÍSTEK Jakub",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 2,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "VESELÝ Jiří",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 2,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "JEBAVÝ Lukáš",
+                  "birdie": 1,
+                  "eagle": 0,
+                  "pary": 1,
+                  "vyhra": false
+                },
+                {
+                  "jmeno": "TICHÝ Jiří",
+                  "birdie": 0,
+                  "eagle": 0,
+                  "pary": 8,
+                  "vyhra": false
+                }
+              ]
+            }
+          ]
+        },
+        "scramble": {
+          "popis": "Hrála se první devítka, tým hraje jedním míčem.",
+          "tymy": [
+            {
+              "nazev": "Edloš",
+              "hraci": ["TRNĚNÝ Milan", "EDL Milan", "HAVLÍK Jaromír", "FRIEDL Leoš"],
+              "vysledek": "−7",
+              "vitez": true
+            },
+            {
+              "nazev": "Zabák",
+              "hraci": ["ŘÁDEK Pavel", "CHVAPILOVÁ Zlata", "MAJŠAJDR Lubomír", "ŽABA Adam"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Šusták",
+              "hraci": ["NOVÁK Petr", "ŠUSTR Martin", "LOUDOVÁ Jana", "ŠIMŮNKOVÁ Lucie"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Šáva",
+              "hraci": ["JEBAVÝ Lukáš", "ŠAVRDA Petr", "HÁVA Filip", "DAŠEK Richard"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Železo",
+              "hraci": ["ŽELEZNÝ Jan", "ŠTENGL Miroslav", "VANĚK Jiří", "ŠTĚPÁNEK Martin"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Fáfa",
+              "hraci": ["VOJTĚCHOVSKÝ Lukáš", "FAFL Martin", "VESELÝ Jiří", "CHVAPIL Tomáš"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Vojcek",
+              "hraci": ["LUXA Petr", "LUSTIG Daniel", "KAMENÍK Martin", "VOJTÍŠEK Petr"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Olivka",
+              "hraci": ["DVOŘÁK Petr", "ŠUSTROVÁ Karolina", "ŠÍSTEK Jakub", "OLIVA Vladimír"],
+              "vysledek": ""
+            },
+            {
+              "nazev": "Posejpal",
+              "hraci": ["POSEJPAL Adam", "KURKA Josef", "TICHÝ Jiří", "RIKLOVÁ Alice"],
+              "vysledek": ""
+            }
+          ]
+        },
+        "souboj": {
+          "kolo": 1,
+          "tymy": [
+            {
+              "nazev": "Luxa",
+              "body": 540
+            },
+            {
+              "nazev": "Háva",
+              "body": 558
+            }
+          ],
+          "vitez": "Háva",
+          "dvojice": [
+            ["ŽABA Adam", 25, "BŘEZINA Lukáš", 34],
+            ["ŠAVRDA Petr", 34, "ŠUSTR Martin", 34],
+            ["EDL Milan", 29, "ŽELEZNÝ Jan", 32],
+            ["VOJTÍŠEK Petr", 25, "FAFL Martin", 25],
+            ["POSEJPAL Adam", 36, "OLIVA Vladimír", 29],
+            ["KURKA Josef", 27, "ŠUSTROVÁ Karolina", 32],
+            ["FRIEDL Leoš", 32, "VOJTĚCHOVSKÝ Lukáš", 37],
+            ["DAŠEK Richard", 32, "ŠTĚPÁNEK Martin", 28],
+            ["LOUDOVÁ Jana", 28, "MAJŠAJDR Lubomír", 36],
+            ["NOVÁK Petr", 29, "ŘÁDEK Pavel", 41],
+            ["ŠTENGL Miroslav", 40, "TRNĚNÝ Milan", 27],
+            ["KAMENÍK Martin", 27, "VESELÝ Jiří", 28],
+            ["DVOŘÁK Petr", 39, "RIKLOVÁ Alice", 28],
+            ["TICHÝ Jiří", 35, "ŠÍSTEK Jakub", 36],
+            ["LUSTIG Daniel", 37, "CHVAPIL Tomáš", 30],
+            ["VANĚK Jiří", 35, "HAVLÍK Jaromír", 42],
+            ["JEBAVÝ Lukáš", 30, "ŠIMŮNKOVÁ Lucie", 39]
+          ],
+          "popis": "Dva týmy, o výhře rozhoduje součet stablefordových bodů celého týmu za 1. den. Body jsou z aplikace; u některých hráčů se o bod či dva liší od oficiální listiny ČGF."
+        }
+      }
     }
   ],
   "poznamka_rany": "Pole \"rany\" jsou rány za jednotlivá kola ze skórkarty hráče na ČGF. Prázdné je tam, kde hrubý výsledek neexistuje — ve stablefordu se po ztrátě bodu míč zvedá a jamka se nedohraje, takže ČGF žádný součet neuvádí.",
