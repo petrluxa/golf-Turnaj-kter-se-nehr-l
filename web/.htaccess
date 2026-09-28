@@ -1,0 +1,26 @@
+# Podstránka s archivem turnaje — čistě statické soubory.
+#
+# Schválně tu NENÍ RewriteEngine On. Vlastní RewriteEngine v podsložce odstřihne
+# dědění pravidel z nadřazeného .htaccess — a s nimi i sjednocení na www, které
+# MatchPulse dělá v kořeni. Pravidla v kořeni mají RewriteCond !-f a !-d, takže
+# skutečné soubory na front controller stejně neposílají a tahle složka funguje
+# i bez vlastních pravidel.
+
+Options -Indexes
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+
+# Data stránky se čtou fetchem, ať se servírují se správným typem
+<IfModule mod_mime.c>
+    AddType application/json .json
+</IfModule>
+
+# Hosting k souborům neposílá Cache-Control, takže si prohlížeč sám odhadne,
+# jak dlouho smí používat starou kopii — po nahrání nové verze pak návštěvníci
+# hodiny viděli starou stránku. "no-cache" = kopii z cache použít smí, ale vždy
+# si ji nechá u serveru ověřit (když se nic nezměnilo, přijde jen krátké 304).
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html?|js|css|json)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
