@@ -1,0 +1,7 @@
+# Obrana do hloubky: ve složce s nahranými soubory se nesmí nic spustit.
+# Nic víc sem nepatří (Options, php_flag, RewriteEngine) — nepovolená
+# direktiva shodí celou složku na 500 a RewriteEngine by vypnul pravidla
+# MatchPulse. Výpis složky řeší prázdný index.html.
+<FilesMatch "\.(?i:php\d*|phtml|phar|pl|py|cgi|sh|shtml)$">
+    Require all denied
+</FilesMatch>

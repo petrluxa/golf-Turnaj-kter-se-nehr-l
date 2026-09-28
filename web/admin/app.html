@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="same-origin">
+<title>Galerie — správa · Turnaj, který se nikdy nehrál</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="admin.css">
+<script src="admin.js" defer></script>
+</head>
+<body>
+<!--
+  Kostra administrace galerie. Stránku posílá admin/index.php s přísnou CSP:
+  žádné inline skripty, styly ani on…= atributy — všechno chování je v admin.js,
+  vzhled v admin.css. Hesla nemají atribut name, takže se nikam neodešlou,
+  ani kdyby formulář náhodou odeslal prohlížeč sám.
+-->
+
+<div class="adm-wrap">
+
+  <p class="adm-nacitam" id="adm-nacitam">Načítám správu galerie…</p>
+  <noscript><p class="adm-varovani">Správa galerie potřebuje zapnutý JavaScript.</p></noscript>
+
+  <!-- ============ chyba při načtení ============ -->
+  <section class="adm-obrazovka adm-chyba-nacteni" id="obr-chyba" hidden>
+    <h1>Galerie — správa</h1>
+    <p class="adm-varovani" id="chyba-nacteni-text"></p>
+    <button type="button" class="adm-btn" id="chyba-nacteni-znovu">Zkusit znovu</button>
+  </section>
+
+  <!-- ============ přihlášení ============ -->
+  <main class="adm-obrazovka adm-prihlaseni" id="obr-prihlaseni" hidden>
+    <div class="adm-eyebrow">Turnaj, který se nikdy nehrál</div>
+    <h1>Galerie — správa</h1>
+    <p class="adm-lede">Fotky a videa k jednotlivým ročníkům turnaje.</p>
+
+    <div class="adm-varovani" id="bez-hesla" hidden>
+      <p><strong>Heslo pro správu zatím není nastavené.</strong></p>
+      <p>Nastavuje ho správce webu: na svém počítači spustí
+        <code>php tools/nastav-heslo.php</code> a vzniklý soubor
+        <code>admin/_data/heslo.php</code> nahraje na hosting. Pak se tu půjde přihlásit.</p>
+    </div>
+
+    <form class="adm-form" id="form-prihlaseni" method="post" autocomplete="on" novalidate>
+      <input type="text" autocomplete="username" value="správce galerie" hidden readonly>
+      <label class="adm-label" for="prihlaseni-heslo">Heslo</label>
+      <input class="adm-input" id="prihlaseni-heslo" type="password" autocomplete="current-password"
+             required autocapitalize="off" spellcheck="false" enterkeyhint="go">
+      <button type="submit" class="adm-btn adm-btn-plny" id="prihlaseni-tlacitko">Přihlásit</button>
+      <p class="adm-hlaska" id="prihlaseni-chyba" role="alert" hidden></p>
+    </form>
+
+    <p class="adm-zpet"><a href="../">← Zpět na výsledky turnaje</a></p>
+  </main>
+
+  <!-- ============ správa ============ -->
+  <div class="adm-obrazovka" id="obr-sprava" hidden>
+
+    <header class="adm-hlavicka">
+      <div class="adm-hlavicka-text">
+        <div class="adm-eyebrow">Turnaj, který se nikdy nehrál</div>
+        <h1>Galerie — správa</h1>
+        <p class="adm-obsazeno" id="obsazeno"></p>
+      </div>
+      <nav class="adm-nav" aria-label="Správa účtu">
+        <a class="adm-btn adm-btn-odkaz" id="odkaz-web" href="../" target="_blank" rel="noopener">Zobrazit na webu ↗</a>
+        <button type="button" class="adm-btn" id="heslo-prepinac" aria-expanded="false" aria-controls="panel-heslo">Změnit heslo</button>
+        <button type="button" class="adm-btn" id="odhlasit">Odhlásit</button>
+      </nav>
+    </header>
+
+    <section class="adm-panel adm-panel-heslo" id="panel-heslo" hidden aria-labelledby="panel-heslo-nadpis">
+      <h2 id="panel-heslo-nadpis">Změnit heslo</h2>
+      <form class="adm-form" id="form-heslo" method="post" novalidate>
+        <input type="text" autocomplete="username" value="správce galerie" hidden readonly>
+        <label class="adm-label" for="heslo-stare">Současné heslo</label>
+        <input class="adm-input" id="heslo-stare" type="password" autocomplete="current-password" autocapitalize="off" spellcheck="false">
+        <label class="adm-label" for="heslo-nove">Nové heslo <span class="adm-label-pozn">(aspoň 10 znaků)</span></label>
+        <input class="adm-input" id="heslo-nove" type="password" autocomplete="new-password" minlength="10" autocapitalize="off" spellcheck="false">
+        <label class="adm-label" for="heslo-znovu">Nové heslo znovu</label>
+        <input class="adm-input" id="heslo-znovu" type="password" autocomplete="new-password" minlength="10" autocapitalize="off" spellcheck="false">
+        <div class="adm-radek-tlacitek">
+          <button type="submit" class="adm-btn adm-btn-plny" id="heslo-ulozit">Uložit nové heslo</button>
+          <button type="button" class="adm-btn" id="heslo-zrusit">Zrušit</button>
+        </div>
+        <p class="adm-hlaska" id="heslo-hlaska" role="status" hidden></p>
+      </form>
+    </section>
+
+    <div id="varovani-zapis"></div>
+
+    <section class="adm-sekce" aria-labelledby="roky-nadpis">
+      <h2 id="roky-nadpis">Ročník</h2>
+      <div class="adm-roky" id="roky" role="group" aria-labelledby="roky-nadpis"></div>
+    </section>
+
+    <section class="adm-sekce" aria-labelledby="nahravani-nadpis">
+      <h2 id="nahravani-nadpis">Nahrát do ročníku <span id="nahravani-rok"></span></h2>
+      <div class="adm-zona" id="zona">
+        <p class="adm-zona-text">
+          <span class="adm-jen-mys">Přetáhni sem fotky a videa</span>
+          <span class="adm-jen-dotyk">Fotky a videa z telefonu nebo počítače</span>
+        </p>
+        <button type="button" class="adm-btn adm-btn-plny adm-btn-velky" id="vybrat">Vybrat soubory</button>
+        <input class="adm-vh" id="soubory" type="file" multiple accept="image/*,video/*" tabindex="-1" aria-hidden="true">
+        <p class="adm-zona-pozn" id="zona-pozn"></p>
+      </div>
+
+      <div class="adm-fronta-obal" id="fronta-obal" hidden>
+        <div class="adm-fronta-hlava">
+          <h3>Nahrávání</h3>
+          <span class="adm-fronta-souhrn" id="fronta-souhrn"></span>
+          <button type="button" class="adm-btn adm-btn-maly" id="fronta-vycistit" hidden>Odebrat hotové</button>
+        </div>
+        <ul class="adm-fronta" id="fronta" role="list"></ul>
+      </div>
+    </section>
+
+    <section class="adm-sekce" aria-labelledby="mrizka-nadpis">
+      <div class="adm-sekce-hlava">
+        <h2 id="mrizka-nadpis" tabindex="-1">Fotky a videa v ročníku <span id="mrizka-rok"></span></h2>
+        <p class="adm-sekce-pozn" id="mrizka-souhrn"></p>
+      </div>
+      <p class="adm-napoveda">Pořadí je stejné jako na webu. Popisek se uloží, když pole opustíš nebo zmáčkneš Enter.</p>
+      <p class="adm-varovani adm-varovani-akce" id="mrizka-varovani" role="status" hidden></p>
+      <p class="adm-prazdno" id="mrizka-prazdno" hidden></p>
+      <!-- role="list": Safari s VoiceOverem seznamu bez odrážek jinak bere význam. -->
+      <ul class="adm-mrizka" id="mrizka" role="list"></ul>
+    </section>
+  </div>
+
+  <div class="adm-vh" id="oznameni" role="status" aria-live="polite" aria-atomic="true"></div>
+</div>
+
+</body>
+</html>

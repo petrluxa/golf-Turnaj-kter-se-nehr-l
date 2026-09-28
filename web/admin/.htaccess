@@ -1,0 +1,9 @@
+# /golf/.htaccess nastavuje DirectoryIndex index.html a to se dědí i sem —
+# bez tohohle řádku by /golf/admin/ vracel 403 místo správy.
+DirectoryIndex index.php
+
+# Knihovna a nastavení se přes web nevolají — načítá je jen api.php.
+# (app.html vypisuje index.php i s bezpečnostními hlavičkami.)
+<FilesMatch "^((lib|config.*)\.php|app\.html)$">
+    Require all denied
+</FilesMatch>

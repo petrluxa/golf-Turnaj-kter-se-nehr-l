@@ -1,0 +1,344 @@
+/* =====================================================================
+   Galerie — správa (administrace fotek a videí k ročníkům)
+   ---------------------------------------------------------------------
+   Barvy a proměnné jsou zkopírované z ../turnaj.css, ať správa vypadá jako
+   veřejná stránka. Stránka běží pod přísnou CSP, takže tady je VŠECHNO:
+   v HTML nejsou žádné style="…" ani <style>. Jediné, co nastavuje JS přímo,
+   je šířka ukazatele průběhu (el.style — to CSP nevadí).
+   ===================================================================== */
+
+:root{
+  --tkn-bg:#EAEEE7;
+  --tkn-paper:#FBFCFA;
+  --tkn-paper-2:#F1F4EE;
+  --tkn-ink:#15211A;
+  --tkn-muted:#5B6B5F;
+  --tkn-line:#C7D1C4;
+  --tkn-line-soft:#DDE4DA;
+  --tkn-green:#1F5D3A;
+  --tkn-green-soft:#E2EDE4;
+  --tkn-red:#A8402B;
+  --tkn-red-soft:#F6E6E1;
+  --tkn-gold:#8A6B25;
+  --tkn-gold-soft:#F3ECD9;
+  --tkn-shadow:0 1px 2px rgba(20,35,25,.07), 0 8px 24px -16px rgba(20,35,25,.35);
+  --tkn-radius:3px;
+  --adm-dotyk:44px;               /* nejmenší výška dotykového cíle */
+  --adm-ramec-pole:#829083;       /* rámeček polí: aspoň 3:1 proti pozadí (WCAG 1.4.11) */
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --tkn-bg:#0E1310;
+    --tkn-paper:#161D18;
+    --tkn-paper-2:#1B241D;
+    --tkn-ink:#E6EDE5;
+    --tkn-muted:#93A396;
+    --tkn-line:#2D392F;
+    --tkn-line-soft:#232E26;
+    --tkn-green:#7CC494;
+    --tkn-green-soft:#1B2C21;
+    --tkn-red:#E08B72;
+    --tkn-red-soft:#2E1C17;
+    --tkn-gold:#D4B25E;
+    --tkn-gold-soft:#2A2415;
+    --tkn-shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    --adm-ramec-pole:#627065;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --tkn-bg:#0E1310;
+  --tkn-paper:#161D18;
+  --tkn-paper-2:#1B241D;
+  --tkn-ink:#E6EDE5;
+  --tkn-muted:#93A396;
+  --tkn-line:#2D392F;
+  --tkn-line-soft:#232E26;
+  --tkn-green:#7CC494;
+  --tkn-green-soft:#1B2C21;
+  --tkn-red:#E08B72;
+  --tkn-red-soft:#2E1C17;
+  --tkn-gold:#D4B25E;
+  --tkn-gold-soft:#2A2415;
+  --tkn-shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  --adm-ramec-pole:#627065;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--tkn-bg);
+  color:var(--tkn-ink);
+  font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;
+}
+h1,h2,h3{font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.05;letter-spacing:-.015em}
+h2{font-size:clamp(21px,3.2vw,26px);letter-spacing:-.01em}
+a{color:var(--tkn-green)}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.9em;background:var(--tkn-paper-2);padding:1px 4px;border-radius:2px;overflow-wrap:anywhere}
+button,input,select{font:inherit;color:inherit}
+
+:focus-visible{outline:2px solid var(--tkn-green);outline-offset:2px}
+
+/* Skryté jen pro oči, čtečka obrazovky je přečte. */
+.adm-vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
+.adm-wrap{max-width:1180px;margin:0 auto;padding:0 16px 72px}
+.adm-nacitam{color:var(--tkn-muted);padding-top:48px;margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px}
+
+.adm-eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tkn-muted);margin-bottom:12px}
+.adm-lede{color:var(--tkn-muted);margin:10px 0 0;font-size:16px}
+
+/* ---------- tlačítka a pole ---------- */
+.adm-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:var(--adm-dotyk);padding:9px 16px;
+  font-size:15px;font-weight:500;line-height:1.2;text-align:center;text-decoration:none;
+  color:var(--tkn-ink);background:var(--tkn-paper);
+  border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);
+  cursor:pointer;touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.adm-btn:hover{border-color:var(--tkn-green);color:var(--tkn-green)}
+.adm-btn:disabled{opacity:.5;cursor:not-allowed}
+.adm-btn:disabled:hover{border-color:var(--tkn-line);color:var(--tkn-ink)}
+.adm-btn-plny{background:var(--tkn-green);border-color:var(--tkn-green);color:var(--tkn-paper)}
+.adm-btn-plny:hover{color:var(--tkn-paper);filter:brightness(1.12)}
+.adm-btn-plny:disabled:hover{color:var(--tkn-paper);border-color:var(--tkn-green);filter:none}
+.adm-btn-velky{min-height:52px;padding:12px 26px;font-size:16px}
+.adm-btn-maly{min-height:36px;padding:5px 12px;font-size:13.5px}
+.adm-btn-nebezpeci{color:var(--tkn-red);border-color:var(--tkn-line)}
+.adm-btn-nebezpeci:hover{color:var(--tkn-red);border-color:var(--tkn-red);background:var(--tkn-red-soft)}
+.adm-btn-nebezpeci-plny{background:var(--tkn-red);border-color:var(--tkn-red);color:var(--tkn-paper)}
+.adm-btn-nebezpeci-plny:hover{color:var(--tkn-paper);border-color:var(--tkn-red);filter:brightness(1.1)}
+
+.adm-form{display:flex;flex-direction:column;gap:6px;max-width:420px}
+.adm-label{font-size:13.5px;font-weight:500;margin-top:8px}
+.adm-label-pozn{font-weight:400;color:var(--tkn-muted)}
+/* 16 px: menší písmo v poli iPhone při kliknutí přiblíží celou stránku. */
+.adm-input,.adm-select{
+  width:100%;min-width:0;min-height:var(--adm-dotyk);padding:9px 12px;
+  font-size:16px;background:var(--tkn-paper);color:var(--tkn-ink);
+  border:1px solid var(--adm-ramec-pole);border-radius:var(--tkn-radius);
+}
+.adm-input::placeholder{color:var(--tkn-muted);opacity:1}
+/* Vlastní vzhled výběru — Safari jinak kreslí šedé nativní tlačítko bez ohledu na motiv.
+   Šipka je ze dvou přechodů, ne obrázek. */
+.adm-select{
+  -webkit-appearance:none;appearance:none;cursor:pointer;
+  padding-right:34px;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,var(--tkn-muted) 50%),linear-gradient(135deg,var(--tkn-muted) 50%,transparent 50%);
+  background-position:calc(100% - 19px) 52%,calc(100% - 14px) 52%;
+  background-size:5px 5px,5px 5px;
+  background-repeat:no-repeat;
+}
+.adm-select:hover{border-color:var(--tkn-green)}
+.adm-select:disabled{opacity:.5;cursor:not-allowed}
+.adm-input:focus,.adm-select:focus{border-color:var(--tkn-green)}
+.adm-form .adm-btn-plny{margin-top:12px}
+.adm-radek-tlacitek{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.adm-radek-tlacitek .adm-btn-plny{margin-top:0}
+
+.adm-hlaska{margin:8px 0 0;font-size:14px;color:var(--tkn-green)}
+.adm-hlaska-chyba,.adm-hlaska.is-chyba{color:var(--tkn-red)}
+
+.adm-varovani{
+  margin:16px 0 0;padding:12px 14px;
+  background:var(--tkn-red-soft);border-left:3px solid var(--tkn-red);border-radius:var(--tkn-radius);
+  color:var(--tkn-ink);font-size:14px;
+}
+.adm-varovani p{margin:0}
+.adm-varovani p+p{margin-top:6px}
+.adm-varovani strong{color:var(--tkn-red)}
+.adm-varovani-akce{margin:0 0 14px}
+
+/* ---------- přihlášení ---------- */
+.adm-prihlaseni{max-width:440px;margin:0 auto;padding-top:clamp(40px,12vh,120px)}
+.adm-prihlaseni h1{margin-bottom:0}
+.adm-prihlaseni .adm-form{margin-top:22px;padding:18px 18px 20px;background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);box-shadow:var(--tkn-shadow);max-width:none}
+.adm-prihlaseni .adm-label{margin-top:0}
+.adm-zpet{margin:22px 0 0;font-size:14px}
+.adm-chyba-nacteni{padding-top:48px}
+.adm-chyba-nacteni .adm-btn{margin-top:16px}
+
+/* ---------- hlavička správy ---------- */
+.adm-hlavicka{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 24px;padding-block:32px 22px;border-bottom:1px solid var(--tkn-line)}
+.adm-hlavicka-text{min-width:0}
+.adm-obsazeno{margin:8px 0 0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--tkn-muted)}
+.adm-obsazeno b{color:var(--tkn-ink);font-weight:500}
+.adm-nav{display:flex;flex-wrap:wrap;gap:8px}
+.adm-btn-odkaz{color:var(--tkn-green)}
+
+.adm-panel{margin-top:18px;padding:16px 18px 18px;background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);box-shadow:var(--tkn-shadow)}
+.adm-panel h2{font-size:20px;margin-bottom:4px}
+
+/* ---------- sekce ---------- */
+.adm-sekce{padding-block:26px;border-bottom:1px solid var(--tkn-line-soft)}
+.adm-sekce:last-of-type{border-bottom:0}
+.adm-sekce h2{margin-bottom:14px}
+.adm-sekce-hlava{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin-bottom:6px}
+.adm-sekce-hlava h2{margin-bottom:0}
+.adm-sekce-pozn{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:var(--tkn-muted)}
+.adm-napoveda{margin:0 0 16px;color:var(--tkn-muted);font-size:13.5px;max-width:62ch}
+.adm-prazdno{margin:0;padding:28px 16px;text-align:center;color:var(--tkn-muted);background:var(--tkn-paper);border:1px dashed var(--tkn-line);border-radius:var(--tkn-radius)}
+h2:focus{outline:none}
+h2:focus-visible{outline:2px solid var(--tkn-green);outline-offset:4px}
+
+/* ---------- výběr roku ---------- */
+.adm-roky{display:flex;flex-wrap:wrap;gap:6px}
+.adm-rok{
+  display:inline-flex;align-items:baseline;gap:7px;
+  min-height:var(--adm-dotyk);padding:9px 12px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px;
+  background:var(--tkn-paper);color:var(--tkn-ink);
+  border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);cursor:pointer;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
+.adm-rok:hover{border-color:var(--tkn-green);color:var(--tkn-green)}
+.adm-rok-pocet{font-size:11.5px;color:var(--tkn-muted);min-width:1ch}
+/* Prázdný ročník: čárkovaný rámeček jako na webu (ne vybledlé číslo — to by
+   nemělo dost kontrastu). */
+.adm-rok.is-prazdny{border-style:dashed}
+.adm-rok[aria-pressed="true"]{background:var(--tkn-ink);color:var(--tkn-paper);border-color:var(--tkn-ink)}
+.adm-rok[aria-pressed="true"] .adm-rok-pocet{color:var(--tkn-paper);opacity:.75}
+
+/* ---------- nahrávání ---------- */
+.adm-zona{
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  padding:26px 16px 22px;text-align:center;
+  background:var(--tkn-paper);border:2px dashed var(--tkn-line);border-radius:var(--tkn-radius);
+}
+.adm-zona.is-nad{border-color:var(--tkn-green);background:var(--tkn-green-soft)}
+/* Do ročníku nejde nahrávat: ztlumí se jen nadpis (tlačítko je vypnuté samo),
+   vysvětlení proč zůstane v plném kontrastu. */
+.adm-zona.is-vypnuto{border-style:dotted}
+.adm-zona.is-vypnuto .adm-zona-text{color:var(--tkn-muted)}
+.adm-zona.is-vypnuto .adm-zona-pozn{color:var(--tkn-ink)}
+.adm-zona-text{margin:0;font-family:Newsreader,Georgia,serif;font-size:21px;font-weight:600}
+.adm-zona-pozn{margin:0;color:var(--tkn-muted);font-size:13px;max-width:60ch}
+.adm-jen-dotyk{display:none}
+@media (hover:none),(pointer:coarse){
+  .adm-jen-mys{display:none}
+  .adm-jen-dotyk{display:inline}
+}
+
+.adm-fronta-obal{margin-top:18px}
+.adm-fronta-hlava{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-bottom:8px}
+.adm-fronta-hlava h3{font-family:"IBM Plex Sans",sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tkn-muted)}
+.adm-fronta-souhrn{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:var(--tkn-muted);flex:1 1 auto}
+.adm-fronta{list-style:none;margin:0;padding:0;background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius)}
+.adm-polozka-fronty{
+  display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 12px;align-items:center;
+  padding:10px 12px;border-bottom:1px solid var(--tkn-line-soft);
+}
+.adm-polozka-fronty:last-child{border-bottom:0}
+.adm-fronta-nahled{
+  grid-row:1 / span 2;width:48px;height:48px;border-radius:2px;
+  background:var(--tkn-paper-2);display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--tkn-muted);overflow:hidden;
+}
+.adm-fronta-nahled img{width:100%;height:100%;object-fit:cover;display:block}
+.adm-fronta-info{min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+.adm-fronta-jmeno{font-weight:500;min-width:0;overflow-wrap:anywhere}
+/* Zalamuje se jen mezi údaji — uvnitř údaje jsou nezlomitelné mezery (admin.js). */
+.adm-fronta-detail{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;color:var(--tkn-muted);min-width:0}
+.adm-fronta-stav-radek{min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.adm-fronta-stav{font-size:13.5px;color:var(--tkn-muted);flex:1 1 12ch;min-width:0}
+.adm-polozka-fronty.is-hotovo .adm-fronta-stav{color:var(--tkn-green);font-weight:500}
+.adm-polozka-fronty.is-chyba .adm-fronta-stav{color:var(--tkn-red)}
+.adm-fronta-akce{display:flex;flex-wrap:wrap;gap:6px}
+.adm-pruh{grid-column:2;height:4px;background:var(--tkn-line-soft);border-radius:2px;overflow:hidden}
+.adm-pruh-hodnota{height:100%;width:0;background:var(--tkn-green);transition:width .25s linear}
+.adm-fronta-upozorneni{
+  grid-column:1 / -1;margin:4px 0 0;padding:8px 10px;font-size:13px;
+  background:var(--tkn-gold-soft);border-left:3px solid var(--tkn-gold);border-radius:var(--tkn-radius);
+}
+
+/* ---------- mřížka položek ---------- */
+.adm-mrizka{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));align-items:start}
+.adm-karta{
+  min-width:0;display:flex;flex-direction:column;
+  background:var(--tkn-paper);border:1px solid var(--tkn-line);border-radius:var(--tkn-radius);box-shadow:var(--tkn-shadow);
+}
+.adm-karta.is-prace{opacity:.65}
+.adm-nahled{
+  position:relative;display:block;aspect-ratio:4 / 3;
+  background:var(--tkn-paper-2);border-radius:var(--tkn-radius) var(--tkn-radius) 0 0;
+  overflow:hidden;color:var(--tkn-muted);text-decoration:none;
+}
+.adm-nahled img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.adm-nahled-bez{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:8px;font-size:13px;text-align:center}
+.adm-znacka{
+  position:absolute;left:8px;bottom:8px;
+  padding:3px 8px;border-radius:2px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;line-height:1.4;
+  background:rgba(10,16,12,.78);color:#fff;
+}
+.adm-poradi{
+  position:absolute;right:8px;top:8px;
+  min-width:26px;padding:2px 6px;border-radius:2px;text-align:center;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;
+  background:rgba(10,16,12,.6);color:#fff;
+}
+.adm-karta-telo{display:flex;flex-direction:column;gap:8px;padding:10px 12px 12px;min-width:0}
+.adm-popis-obal{display:flex;flex-direction:column;gap:3px;min-width:0}
+.adm-popis-stav{min-height:1.4em;font-size:12.5px;color:var(--tkn-muted)}
+.adm-popis-stav.is-ok{color:var(--tkn-green)}
+.adm-popis-stav.is-chyba{color:var(--tkn-red)}
+.adm-meta{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;color:var(--tkn-muted);min-width:0;overflow-wrap:normal}
+.adm-akce{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch}
+.adm-sipka{min-width:var(--adm-dotyk);padding:6px 10px;font-size:14px}
+.adm-akce .adm-select{flex:1 1 8em;width:auto;padding-block:6px}
+.adm-karta-pata{display:flex;align-items:center;justify-content:space-between;gap:4px 10px}
+.adm-karta-pata .adm-meta{flex:1 1 0}
+.adm-karta-pata .adm-btn-smazat{flex:none}
+.adm-btn-smazat{min-height:38px;padding:5px 12px;font-size:14px}
+.adm-potvrzeni{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  padding:10px;background:var(--tkn-red-soft);border-radius:var(--tkn-radius);
+}
+.adm-potvrzeni-text{flex:1 0 100%;margin:0;font-size:14px;font-weight:500}
+.adm-potvrzeni-presun{background:var(--tkn-green-soft)}
+
+/* Video, ze kterého se čte délka a plakát. iPhone ho musí mít ve stránce,
+   jinak nenačte ani snímek — proto je tu, jen neviditelné. */
+.adm-video-cteni{position:fixed;left:0;bottom:0;width:2px;height:2px;opacity:.01;pointer-events:none;z-index:-1}
+
+/* Úzký displej: karta je vodorovná — náhled vlevo, pole vpravo, tlačítka pod tím. */
+@media (max-width:559px){
+  .adm-mrizka{gap:10px}
+  .adm-karta{display:grid;grid-template-columns:104px minmax(0,1fr)}
+  .adm-nahled{grid-row:1 / span 2;aspect-ratio:auto;min-height:104px;height:100%;border-radius:var(--tkn-radius) 0 0 0}
+  .adm-karta-telo{display:contents}
+  .adm-popis-obal{grid-column:2;padding:10px 12px 0}
+  .adm-karta-pata{grid-column:2;grid-row:2;padding:0 12px 4px;align-self:end}
+  .adm-akce,.adm-potvrzeni{grid-column:1 / -1;margin:0 10px 10px}
+  .adm-akce{margin-top:8px}
+  .adm-hlavicka{padding-top:24px}
+  .adm-nav .adm-btn{flex:1 1 auto}
+}
+@media (min-width:700px){
+  .adm-wrap{padding-inline:24px}
+}
+/* Prst potřebuje větší cíl než myš. */
+@media (pointer:coarse){
+  .adm-btn-maly,.adm-btn-smazat{min-height:var(--adm-dotyk)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+/* Vynucené barvy (kontrastní motiv Windows): pozadí zmizí, vybraný ročník
+   musí být poznat jinak. */
+@media (forced-colors:active){
+  .adm-rok[aria-pressed="true"]{outline:3px solid Highlight;outline-offset:-5px}
+}

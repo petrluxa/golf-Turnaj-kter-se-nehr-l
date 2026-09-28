@@ -2,3 +2,16 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# Galerie — fotky, videa a manifest vznikají až na serveru
+web/media/*
+!web/media/.htaccess
+!web/media/index.html
+
+# Soukromá data administrace (hash hesla, zámky, session, rozpracovaná videa)
+web/admin/_data/*
+!web/admin/_data/.htaccess
+!web/admin/_data/index.html
+
+# Místní nastavení administrace
+web/admin/config.php
